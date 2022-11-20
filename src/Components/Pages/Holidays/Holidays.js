@@ -15,8 +15,8 @@ import StarRating from '../../Shared/Stars/Stars';
 
 import ServiceSection from '../../Shared/serviceSection/ServiceSection';
 
-const headerTitle = <>Select Your tooor </>;
-const headerParagraph = <> Ana msh mn sharm , </>;
+const headerTitle = <>Select Your Destination </>;
+const headerParagraph = <> The great advantage of a hotel is that it is a refuge from home life. </>;
 const Holidays = () => {
   const [holidays, setHotlidays] = useState([]);
   const [cities, setCities] = useState([]);

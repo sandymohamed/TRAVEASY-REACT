@@ -27,101 +27,97 @@ import UserHolidayRes from './Components/Pages/UserReservations/UserHolidayRes';
 import Payment from './Components/Payment/Payment';
 
 function App() {
-    const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
+  const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
 
   // const [themeContext, setThemeContext]= useState('normal')
-// 
+  // 
   return (
     <div >
 
-<BrowserRouter>
-      <DarkModeProvider >
-        {/*  */}
+      <BrowserRouter>
+        <DarkModeProvider >
+          {/*  */}
 
-        <RootGuard>
-          <NavbarComponant />
-          <Switch>
-            <Route
-              path={'/'}
-              exact
-              component={Home}
-            />
-            <Route
-              path={'/home'}
-              component={Home}
-            />
-            <Route
-            exact
-              path={'/hotels'}
-              component={Hotels}
-            />
-            {/* <Route
-
-              path={'/tourguide'}
-              component={TourGuiding}
-            /> */}
-            <Route
-              path={'/flight'}
-              component={Flight}
-            />
-            <Route
-            exact
-              path={'/holidays'}
-              component={Holidays}
-            />
+          <RootGuard>
+            <NavbarComponant />
+            <Switch>
               <Route
-              path={'/holiday'}
-              component={Holidays}
-            />
-         
-            <Route
-              path={'/login'}
-              component={Login}
-            />
-            <Route
-              path={'/register'}
-              component={Registeration}
-            />
-            <Route
-              path={'/book'}
-              component={BookForm}
-            />
-    
-               <GuardedRoute
-              path={'/hotels/:id'}
-              component={BookHotel}
-            />
-          
+                path={'/'}
+                exact
+                component={Home}
+              />
+              <Route
+                path={'/home'}
+                component={Home}
+              />
+              <Route
+                exact
+                path={'/hotels'}
+                component={Hotels}
+              />
+
+              <Route
+                path={'/flight'}
+                component={Flight}
+              />
+              <Route
+                exact
+                path={'/holidays'}
+                component={Holidays}
+              />
+              <Route
+                path={'/holiday'}
+                component={Holidays}
+              />
+
+              <Route
+                path={'/login'}
+                component={Login}
+              />
+              <Route
+                path={'/register'}
+                component={Registeration}
+              />
+              <Route
+                path={'/book'}
+                component={BookForm}
+              />
+
               <GuardedRoute
-              path={'/holidays/:id'}
-              component={BookHoliday}
-            />
-                <GuardedRoute
-              path={'/payment'}
-              component={Payment}
-            />
-             <GuardedRoute
-              path={'/reservation'}
-              component={UserReservations}
-            />
+                path={'/hotels/:id'}
+                component={BookHotel}
+              />
+
+              <GuardedRoute
+                path={'/holidays/:id'}
+                component={BookHoliday}
+              />
+              <GuardedRoute
+                path={'/payment'}
+                component={Payment}
+              />
+              <GuardedRoute
+                path={'/reservation'}
+                component={UserReservations}
+              />
               <Route
-              path={'/userholidayReservation'}
-              component={UserHolidayRes}
-            />
-         
-             <Route
-            path={'/UserDetails'}
-            exact
-            component={UserDetails}></Route>
-            <Route
-              path={'*'}
-              component={NotFound}
-            />
-          </Switch>
-        </RootGuard>
-      </DarkModeProvider>
-    </BrowserRouter>
-      
+                path={'/userholidayReservation'}
+                component={UserHolidayRes}
+              />
+
+              <Route
+                path={'/user/profile'}
+                exact
+                component={UserDetails}></Route>
+              <Route
+                path={'*'}
+                component={NotFound}
+              />
+            </Switch>
+          </RootGuard>
+        </DarkModeProvider>
+      </BrowserRouter>
+
     </div>
 
   );

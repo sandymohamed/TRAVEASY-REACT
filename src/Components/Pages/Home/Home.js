@@ -55,8 +55,8 @@ const Home = () => {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Travel. Your money will return. Your time won’t.</h3>
+            <p>Collect Moments, Not Things.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -66,10 +66,9 @@ const Home = () => {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>We have nothing to lose and a world to see.</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+              Live life with no excuses, travel with no regret.            </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -78,8 +77,8 @@ const Home = () => {
         <section className='home_FlightContainer '>
           <div className='container'>
             <article className='flightContainer_article'>
-              <p>Explore Wonderful Experience</p>
-              <h3>Visite popular Destinations</h3>
+              <p>Live your life by a compass, not a clock.</p>
+              <h3>I love places that make you realize how tiny you and your problems are.</h3>
               <span>In The World</span>
             </article>
             <div className='flightContainer_discover'>
@@ -87,14 +86,14 @@ const Home = () => {
 
                 <div className='discover_cards  col-md-7'>
 
-                  {AirLineList.map((AirLine , index) =>
-                   { if(index < 3) {
-                    return (
-                      <FlightCard
-                        Flightobj={AirLine}                      
-                      />
-                    );
-                  }
+                  {AirLineList.map((AirLine, index) => {
+                    if (index < 3) {
+                      return (
+                        <FlightCard
+                          Flightobj={AirLine}
+                        />
+                      );
+                    }
                   })}
 
                 </div>
@@ -130,8 +129,8 @@ const Home = () => {
               </div>
               <div className='hotel-article col-md-8'>
                 <article>
-                  <p>Away From Your Home !?</p>
-                  <h3>Select your Home</h3>
+                  <p>Beach please!?</p>
+                  <h3>Don’t call it a dream. Call it a plan</h3>
                   <img src={hotelImg} loading="lazy"></img>
 
                   <Link className='orangeBtn' to='hotels'>Discover Now </Link>
@@ -155,27 +154,25 @@ const Home = () => {
             <div className='row'>
               <div className='tour-img col-md-5 d-flex ' >
 
-{holidays &&
-  holidays.map((holiday, i) => (
-   <div >
-         <Vcart
-                    key={i}
-                    title={holiday.HotelName}
-                    city={holiday.City.City_Name}
-                    Evaluation={holiday.Evaluation}
-                    Price={holiday.Price}
-                    img={holiday.ImgURL[0]}
-                    // description={holiday.Description}
-                    link={`holidays/${holiday._id}`}
-                  />
-    </div>
-  ))}
+                {holidays &&
+                  holidays.map((holiday, i) => (
+                    <div >
+                      <Vcart
+                        key={i}
+                        title={holiday.HotelName}
+                        city={holiday.City.City_Name}
+                        Evaluation={holiday.Evaluation}
+                        Price={holiday.Price}
+                        img={holiday.ImgURL[0]}
+                        // description={holiday.Description}
+                        link={`holidays/${holiday._id}`}
+                      />
+                    </div>
+                  ))}
 
               </div>
               <article className='tour-article col-md-6'>
-                <h3>HOLIDAYS</h3>
-                <h3>The Perfect Place </h3>
-                <p>And journey.</p>
+                <h3>Travel makes you realize that no matter how much you know,<br /> there’s always more to learn.</h3>
                 <img src={tourImg} loading="lazy" ></img>
                 <Link className='orangeBtn' to='holidays'>Discover Now </Link>
 

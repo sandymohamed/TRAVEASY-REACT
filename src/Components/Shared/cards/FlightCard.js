@@ -1,6 +1,6 @@
 import './flightcard.scss';
 import dummyImg from '../../../assets/card/dummy-image.jpg';
-import { useEffect, useState  , useContext} from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlane, faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
@@ -45,7 +45,7 @@ function FlightCard({ Flightobj, setIsBook }) {
     }
 
     try {
-      bookedFlight(user.id, Flightobj._id,PassportNumber, paid).then((res) => res);
+      bookedFlight(user.id, Flightobj._id, PassportNumber, paid).then((res) => res);
       setIsBook(true);
       toast.success(`booking confirmed`, {
         position: toast.POSITION.TOP_CENTER,
@@ -60,7 +60,7 @@ function FlightCard({ Flightobj, setIsBook }) {
   const [show, setShow] = useState(false);
   const [ShowBook, setShowBook] = useState(false);
   const [paid, setPaid] = useState(false)
-  const [PassportNumber , setPassportNumber] = useState()
+  const [PassportNumber, setPassportNumber] = useState()
   const [errors, setErrors] = useState({
     PassportNumberErr: null,
   });
@@ -73,8 +73,8 @@ function FlightCard({ Flightobj, setIsBook }) {
 
   const regex = /^(?!^0+$)[a-zA-Z0-9]{7,20}$/;
   const changeDetails = (e) => {
-     if (e.target.name === 'PassportNumber') {
-       setPassportNumber( e.target.value);      
+    if (e.target.name === 'PassportNumber') {
+      setPassportNumber(e.target.value);
       setErrors({
         PassportNumberErr: !regex.test(e.target.value) ? 'Invalid Passport Number.' : null,
       });
@@ -84,9 +84,9 @@ function FlightCard({ Flightobj, setIsBook }) {
 
   const submitData = (e) => {
     e.preventDefault();
-   
 
-    if (!errors.PassportNumberErr) {      
+
+    if (!errors.PassportNumberErr) {
       try {
         FunctionBooking();
       } catch (error) {
@@ -99,7 +99,7 @@ function FlightCard({ Flightobj, setIsBook }) {
         position: toast.POSITION.TOP_CENTER,
       });
     }
-   
+
   };
 
 
@@ -129,11 +129,11 @@ function FlightCard({ Flightobj, setIsBook }) {
               <div className="spacer"></div>
               <div className="container">
                 <span className="line">
-                  {' '}
+
                   - - - - - - -
-                  <span className='icon'>  
-                    {' '}
-                    <i class="fa-solid fa-plane"></i>{' '}
+                  <span className='icon'>
+
+                    <i className="fa-solid fa-plane"></i>{' '}
                   </span>{' '}
                   - - - - - - -
                 </span>
