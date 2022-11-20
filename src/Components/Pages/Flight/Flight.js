@@ -40,7 +40,7 @@ const Flight = () => {
         break;
       case 'dateFrom':
         setdateFrom(setFormatDate(e.target.value));
-          break;
+        break;
       case 'dateTo':
         setdateTo(setFormatDate(e.target.value));
         break;
@@ -161,9 +161,8 @@ const Flight = () => {
       </div>
     </>
   );
-  // Colling Database and Filter Data
   useEffect(() => {
-    getAllFlight( countryFrom,countryTo,dateFrom, dateTo, selectedClass, price).then((res) => setAirLineList(res.data));
+    getAllFlight(countryFrom, countryTo, dateFrom, dateTo, selectedClass, price).then((res) => setAirLineList(res.data));
     setIsBook(false);
   }, [countryTo, dateTo, selectedClass, price, isBook]);
 
@@ -175,11 +174,7 @@ const Flight = () => {
         img={headerImg}
       />
       <ServiceSection serviceSection={serviceSection} />
- 
-         
-      
-       
-      {/* ////////////////////// */}
+
       <section className="flightcomponent">
         <div className="row">
           <section className=" col-md-3 ">
@@ -190,8 +185,10 @@ const Flight = () => {
           </section>
           <section className="cardsArea col-md-8 ">
             {AirLineList.map((AirLine) => {
+
               return (
                 <FlightCard
+                  key={AirLine._id}
                   Flightobj={AirLine}
                   setIsBook={setIsBook}
                 />
@@ -200,8 +197,8 @@ const Flight = () => {
           </section>
         </div>
       </section>
-       
-      
+
+
     </>
   );
 };
