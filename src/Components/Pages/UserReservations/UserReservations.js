@@ -69,7 +69,7 @@ const UserReservations = () => {
                                                                 <div className='cardInformation'>
                                                                     <div className='confirmation'>
                                                                         <span className='title'>Acceptance:</span>
-                                                                        <span className='data pending'> {String(item.IsApprove)}</span>
+                                                                        <span className='data pending'> {item.IsApprove ? "yes" : "No"}</span>
                                                                         {/* <span className='data confirmed'>Confirmed</span>
                                                             <span className='data canceled'>Confirmed</span> */}
 
@@ -135,11 +135,11 @@ const UserReservations = () => {
                     </div>
 
                     {/* ******************************** Holiday *****************************  */}
-                    {/* <div className='userReservations_Img'>
+                    <div className='userReservations_Img'>
                         <span className='cloud'></span>
                         <img src={calenderIcon}></img>
                         <h2 className='text-center'>Holiday Reservations</h2>
-                    </div> */}
+                    </div> 
                     <div className='userReservations_data'>
                         <div className='container'>
                             <div className='row'>
@@ -163,7 +163,7 @@ const UserReservations = () => {
                                                                 <div className='cardInformation'>
                                                                     <div className='confirmation'>
                                                                         <span className='title'>Acceptance: </span>
-                                                                        <span className='data pending'> {String(item.IsApprove)}</span>
+                                                                        <span className='data pending'> {item.IsApprove? "yes" : "No"}</span>
                                                                         {/* <span className='data confirmed'>Confirmed</span>
                                                             <span className='data canceled'>Confirmed</span> */}
 
@@ -230,11 +230,11 @@ const UserReservations = () => {
 
 
                      {/* ******************************** Flight *****************************  */}
-                     {/* <div className='userReservations_Img'>
+                     <div className='userReservations_Img'>
                         <span className='cloud'></span>
                         <img src={calenderIcon}></img>
                         <h2 className='text-center'>Flight Reservations</h2>
-                    </div> */}
+                    </div> 
                     <div className='userReservations_data'>
                         <div className='container'>
                             <div className='row'>
@@ -258,7 +258,7 @@ const UserReservations = () => {
                                                                 <div className='cardInformation'>
                                                                     <div className='confirmation'>
                                                                         <span className='title'>Acceptance: </span>
-                                                                        <span className='data pending'> {String(item.IsBooking)}</span>
+                                                                        <span className='data pending'> {item.IsBooking? "yes" : "No"}</span>
                                                                        
                                                                     </div>
                                                                     {
