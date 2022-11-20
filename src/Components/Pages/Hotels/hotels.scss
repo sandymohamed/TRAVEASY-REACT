@@ -1,0 +1,74 @@
+@import "../../../Style/colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+.hotelDetails {
+    @include dFlex;
+    justify-content: space-around;
+ 
+
+       
+        
+        button{
+            @include primaryBtn;
+        }
+
+        @include dFlex;
+        justify-content: space-around;
+
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+    }
+
+
+
+
+.hotelcomponent{
+    margin: 2rem 10vw;
+    .cardsArea{  
+        
+    @include dFlex;
+    flex-direction: column;
+    }
+
+    .cards-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+
+        >*{
+            margin-right: 1rem;
+        }
+    }
+    
+}
+.serviceFilter_stars{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@media (max-width: 768px) {
+    .hotel-container{
+        flex-direction: column;
+
+
+        .slide-bar{
+            width: 100%;
+            display: block;
+            margin: 0;
+
+            .filter-bar{
+                width: 100%;
+            }
+        }
+
+        .cards-container{
+            flex-direction: column;
+        }
+    }
+  
+}

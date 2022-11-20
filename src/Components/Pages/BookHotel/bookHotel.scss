@@ -1,0 +1,30 @@
+@import "../../../Style/colors.scss";
+@import"../../../Style/shortcuts.scss";
+
+
+.hotelBook {
+    .feedback-container {}
+
+    .feedbacks {
+        position: relative;
+        left: 10%;
+        width: 80%;
+        height: fit-content;
+        padding: 5%;
+        border: 10px solid darken($primaryColor, 5%);
+        background-color: rgb(255, 255, 255);
+        border-radius: calc($borderRadius * 3);
+        overflow: hidden;
+        margin: 1rem;
+
+
+        label {
+            padding: 10px 20px;
+            border-radius: calc($borderRadius * 3);
+            background-color: $secoundryColor;
+
+        }
+
+    }
+
+}

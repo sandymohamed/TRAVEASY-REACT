@@ -1,0 +1,51 @@
+@import "../../../Style/colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+.postFeedback {
+    margin: 1rem 0;
+    border: 10px solid darken($primaryColor, 5%);
+    background-color: rgb(255, 255, 255);
+    border-radius: calc($borderRadius * 3);
+    min-height: 200px;
+    transition: $noramlTransition;
+    @include dFlex;
+    .my-form {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        div {
+            label {
+                padding: 10px 20px;
+                border-radius:calc($borderRadius * 3);
+                background-color: $secoundryColor;
+            }
+            input {
+            }
+        }
+    }
+
+}
+
+.postFeedbackfalse{
+ 
+    border: 10px solid lighten($secoundryColorDark, 10) !important;
+    background-color: $secoundryColorDark;
+   
+    transition: $noramlTransition;
+    @include dFlex;
+    .my-form {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        div {
+            label {
+                padding: 10px 20px;
+                border-radius:calc($borderRadius * 3);
+                background-color:  lighten($secoundryColorDark, 40);
+            }
+            input {
+            }
+        }
+    }
+
+}

@@ -1,0 +1,92 @@
+@import "../../../Style/colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.flightDetails{
+
+    .flightDetails_country,
+    .flightDetails_date {
+        @include dFlex;
+        justify-content: space-around;
+
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+
+        >div {
+            position: relative;
+
+            i {
+                position: absolute;
+                left: 0;
+                top: 8px;
+                padding: 9px 8px;
+                color: #aaa;
+                transition: 0.3s;
+            }
+        }
+
+        span {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+    }
+
+}
+
+
+*input[list="country"],
+[type="date"] {
+    border-radius: $borderRadius;
+    border: 2px solid #aaa;
+    margin: 8px 0;
+    padding-left: 2rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+
+    &:focus {
+        border-color: $secoundryColor;
+        box-shadow: 0 0 8px 0 $secoundryColor;
+    }
+}
+
+.flightcomponent{
+    margin: 2rem 10vw;
+    .cardsArea{  
+        
+    @include dFlex;
+    flex-direction: column;
+    }
+    
+}
+
+
+.formCard{
+    position: relative;
+    left: 10% ;
+    width: 80%;
+    height: fit-content;
+    padding: 5%;
+    border: 10px solid darken($primaryColor, 5%);
+    background-color: rgb(255, 255, 255);
+    border-radius: calc($borderRadius * 3);
+    overflow: hidden;
+    margin: 1rem;
+
+    .reservation-card{
+        padding: 5%;
+        border: 1px solid rgb(98, 97, 97);
+        border-radius: 3rem;
+        margin: 1rem;
+        
+        
+    }
+
+}

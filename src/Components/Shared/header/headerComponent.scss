@@ -1,0 +1,56 @@
+@import "../../../Style/colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+.vtrue {
+    background-color: rgb(255, 255, 255);
+  }
+  
+.vfalse {
+    background-color: $secoundryColorDark;
+    border: 10px solid lighten($secoundryColorDark, 10) !important;
+  }
+#header_container {
+    // background-color: rgb(255, 255, 255);
+    border: 10px solid lighten($primaryColor, 10);
+    margin: 2rem 10vw;
+    padding: 2rem;
+    border-radius: calc($borderRadius * 3);
+    position: relative;
+    min-height: 200px;
+    transition:$noramlTransition;
+    @media only screen and (max-width: 800px) {
+        min-height: 350px;
+
+    }
+
+    .header_title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: $primaryColor;
+    }
+
+    .header_paragraph {
+        color: $gray;
+    }
+
+    .header_img {
+        max-height: 250px;
+        max-width: 250px;
+        position: absolute;
+        top: 50%;
+        right: -10%;
+        transform: translate(-50%,-50%);
+        transition: $noramlTransition;
+        @media only screen and (max-width: 800px) {
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+
+    }
+}
+
+.rdrMonthAndYearWrapper {
+    background-color: red;
+}

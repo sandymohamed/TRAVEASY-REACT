@@ -1,0 +1,69 @@
+@import "../../../Style/colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+.flightDetails{
+
+    .flightDetails_country,
+    .flightDetails_date {
+        @include dFlex;
+        justify-content: space-around;
+
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+
+        >div {
+            position: relative;
+
+            i {
+                position: absolute;
+                left: 0;
+                top: 8px;
+                padding: 9px 8px;
+                color: #aaa;
+                transition: 0.3s;
+            }
+        }
+
+        span {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+    }
+
+}
+
+
+*input[list="country"],
+[type="date"] {
+    border-radius: $borderRadius;
+    border: 2px solid #aaa;
+    margin: 8px 0;
+    padding-left: 2rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+
+    &:focus {
+        border-color: $secoundryColor;
+        box-shadow: 0 0 8px 0 $secoundryColor;
+    }
+}
+
+.flightcomponent{
+    margin: 2rem 10vw;
+    .cardsArea{  
+        
+    @include dFlex;
+    flex-direction: column;
+    }
+    
+}
+

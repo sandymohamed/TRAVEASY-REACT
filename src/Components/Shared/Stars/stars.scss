@@ -1,0 +1,19 @@
+.star-rating{
+    
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 2rem;
+  
+ >*{
+    font-size: 1.2rem;
+    margin-right:.2rem ;
+ }
+    .on {
+      color: rgb(239, 204, 7);
+    }
+    .off {
+      color: rgb(68, 66, 66);
+    }
+}

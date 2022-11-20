@@ -1,0 +1,133 @@
+@import "../../../Style/colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+
+.hotelDetails {
+    // padding: 2rem;
+
+    .container {
+        .det-container {
+            margin: 2rem 0;
+            border: 10px solid darken($primaryColor, 5%);
+            background-color: rgb(255, 255, 255);
+            border-radius: calc($borderRadius * 3);
+            min-height: 300px;
+            transition: $noramlTransition;
+
+
+            .row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 1rem;
+
+                .hotel-details {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+
+                    .hotelName {
+                        padding: 5px 20px;
+                        width: fit-content;
+                        border-radius: calc($borderRadius *2);
+                        background-color: $secoundryColor;
+                        color: white;
+                    }
+
+                    .hotel-details-data {
+                        margin: 10px;
+
+                        .title {
+                            font-size: 12px;
+                            font-weight: 800;
+                            margin-right: 10px;
+                            padding: 5px 10px;
+                            width: fit-content;
+                            border-radius: calc($borderRadius *2);
+                            background-color: $liteGray;
+                        }
+
+                        .data {
+                            i {
+                                color: $secoundryColor;
+                            }
+                        }
+                    }
+                }
+
+                .mapouter {
+
+                    // width: 95%;
+                    .gmap_canvas {
+                        border-radius: calc($borderRadius *2);
+                        overflow: hidden;
+
+                        iframe {
+                            width: 100%;
+                            min-height: 250px;
+                        }
+
+                    }
+
+
+
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+}
+
+
+
+
+.hotelDetailsfalse {
+
+    .container {
+        .det-container {
+            border: 10px solid lighten($secoundryColorDark, 10) !important;
+            background-color: $secoundryColorDark;
+
+            .row {
+
+                .hotel-details {
+
+                    .hotelName {
+
+                        background-color: lighten($secoundryColorDark, 30);
+                        color: white;
+                    }
+
+                    .hotel-details-data {
+                        margin: 10px;
+
+                        .title {
+
+                            background-color: lighten($secoundryColorDark, 60);
+                        }
+
+                        .data {
+                            color: white;
+
+                            i {
+                                color: $secoundryColor;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+}

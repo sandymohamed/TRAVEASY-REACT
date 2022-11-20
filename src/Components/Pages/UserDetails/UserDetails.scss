@@ -1,0 +1,89 @@
+@import "../../../Style//colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+
+
+
+.userDetails {
+    background-color: $white;
+    transition: $noramlTransition;
+    height: 100vh;
+
+    .row {
+        display: flex;
+        justify-content: space-evenly;
+
+        .userData {
+            background-color: $white;
+            background-color: $primaryColor;
+            border: 10px solid lighten($primaryColor, 10);
+            margin: 1.5rem 0;
+            border-radius: calc($borderRadius * 3);
+
+            .userData_value {
+                margin: 1rem 0;
+                display: flex;
+                flex-wrap: wrap;
+
+                .title {
+                    background-color: $white;
+                    padding: 5px;
+                    border-radius: $borderRadius;
+                    margin-right: 10px;
+                    width: fit-content;
+                }
+
+                .value {}
+            }
+        }
+
+        .userData_Update {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    }
+
+
+}
+
+.userfalse {
+
+    background-color: $primaryColorDark;
+    color: $white;
+
+
+
+    .row {
+
+        .userData {
+            background-color: $secoundryColorDark;
+            border: 10px solid lighten($secoundryColorDark, 10);
+
+            .userData_value {
+
+                .title {
+                    background-color: $secoundryColor;
+                    color:$primaryColorDark ;
+
+                }
+
+                .value {
+                    color: $white;
+
+                }
+            }
+        }
+
+        .userData_Update {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    }
+
+
+}

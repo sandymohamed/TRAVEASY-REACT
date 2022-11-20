@@ -1,0 +1,164 @@
+@import "../../../Style/colors.scss";
+@import "../../../Style/shortcuts.scss";
+
+
+.slidebar {
+    background-color: $liteGray;
+    border: 10px solid rgb(255, 255, 255);
+    border-radius: calc($borderRadius *3);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2em 1vw;
+    padding: 10px 0px;
+    @media only screen and (max-width: 768px) {
+        margin: 2em 1vw;
+    }
+    // h4{
+    //     padding-top: 1rem
+    // }
+    .slidebar_container {
+
+        @include dFlex;
+        flex-direction: column;
+        padding-top: 1rem;
+        @media only screen and (max-width: 768px) {
+            align-items: flex-start;
+            justify-content: space-between !important;
+            flex-direction: row;
+        }
+        .filter {
+            @include dFlex;
+            flex-direction: column;
+            input[type="number"] , input[type="radio"]{
+                width: 40px;
+                &::-webkit-outer-spin-button,
+                ::-webkit-inner-spin-button {
+                    appearance: none !important;
+                }
+                ;
+            }
+
+            input[type="number"] ,input[type="radio"]{
+                display: none;
+
+                &:checked + label {
+                    background-color: $primaryColor;
+
+                    ::before {
+                        border: 6px solid white
+                    }
+                }
+            }
+
+            label {
+                font-size: 12px;
+                margin: 1px;
+                background-color: $liteGray;
+                padding: 5px 10px 5px 30px;
+
+                position: relative;
+                border-radius: $borderRadius;
+                border: 5px solid white;
+                
+
+                & ::before {
+                    content: "";
+                    position: absolute;
+                    left: 5px;
+                    height: 20px;
+                    width: 20px;
+                    border: 3px solid white;
+                    border-radius: 50%;
+
+                }
+
+            }
+
+            small {
+                font-size: 8px;
+            }
+        }
+        .priceFilter{
+            span{
+                display: block;
+                margin-bottom: 20px;
+            }
+            button{
+                @include primaryBtn;
+            }
+        }
+
+        
+    }
+
+}
+
+.slidebarfalse {
+    background-color: $secoundryColorDark;
+    border: 10px solid lighten($secoundryColorDark, 10) !important;
+    color: white ;
+   
+    // h4{
+    //     padding-top: 1rem
+    // }
+    .slidebar_container {
+
+      
+        .filter {
+         
+
+            input[type="number"] ,input[type="radio"]{
+                display: none;
+
+                &:checked + label {
+                    background-color: $primaryColor;
+
+                    ::before {
+                        border: 6px solid lighten($secoundryColorDark, 10)
+                    }
+                }
+            }
+
+            label {
+                font-size: 12px;
+                margin: 1px;
+                background-color: lighten($secoundryColorDark, 10);
+                padding: 5px 10px 5px 30px;
+
+                position: relative;
+                border-radius: $borderRadius;
+                border: 5px solid lighten($secoundryColorDark, 20);
+                
+
+                & ::before {
+                    content: "";
+                    position: absolute;
+                    left: 5px;
+                    height: 20px;
+                    width: 20px;
+                    border: 3px solid white;
+                    border-radius: 50%;
+
+                }
+
+            }
+
+            small {
+                font-size: 8px;
+            }
+        }
+        .priceFilter{
+            span{
+                display: block;
+                margin-bottom: 20px;
+            }
+            button{
+                @include primaryBtn;
+            }
+        }
+
+        
+    }
+
+}

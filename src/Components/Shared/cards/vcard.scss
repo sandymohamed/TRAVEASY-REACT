@@ -1,0 +1,212 @@
+@import "../../../Style/colors.scss";
+@import"../../../Style/shortcuts.scss";
+
+.vtrue {
+    background-color: rgb(255, 255, 255);
+  }
+  
+.vfalse {
+   
+    border: 10px solid lighten($secoundryColorDark, 40) !important;
+  background-color:  lighten($secoundryColorDark, 20)!important;;
+    &:hover{
+        border: 10px solid lighten($secoundryColorDark, 50) !important;
+        .cartBody .cartBody_img img{
+        filter: brightness(100%)
+
+    }
+    }
+    .cartBody {
+        .cartBody_img {
+         
+            img {
+            
+    
+            }
+        }
+
+        .cartBody_details {
+            h3 {
+            
+                background-color:  white !important;
+                color: $secoundryColorDark !important
+            }
+
+            .cartBody_details_data {
+                @include dFlex;
+                justify-content: space-between;
+            
+                .cartBody_details_data_text {
+                    .spanMajor {
+                        display: block;
+                        font-weight: bolder;
+                        color: $secoundryColor;
+                    }
+
+                    .spanMinor {
+                        display: block;
+                        color: $liteGray;
+                        font-size: 14px;
+                    }
+                    .review{
+                        color: $gray;
+                        i{
+                            color: $secoundryColor;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .cartBody_details_data_price {
+                font-size: 12px;
+                border-radius: $borderRadius;
+                border: 2px solid $primaryColor;
+                padding: 0.2em 0.5em ;
+                transition: $noramlTransition;
+                &:hover {
+                    border: 2px solid $secoundryColor;
+
+                    .priceCurrency{
+                        color: $primaryColor;
+                    }
+                }
+
+                .stars{
+                    display: block;
+                    
+                }
+
+                .itemPrice {
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color: $primaryColor;
+                }
+
+                .priceCurrency {
+                    color: $secoundryColor;
+
+                }
+
+            }
+
+        }
+
+    }
+
+  }
+#vcart {
+    border: 10px solid darken($primaryColor, 5%);
+    width: 15em !important;
+    min-width: 200px;
+    background-color: $white;
+    max-width: 250px;
+    border-radius: calc($borderRadius * 3);
+    overflow: hidden;
+    transition: $noramlTransition;
+    &:hover{
+        border: 10px solid darken($primaryColor, 15%);
+    .cartBody .cartBody_img img{
+        filter: brightness(100%)
+
+    }
+    }
+    .cartBody {
+        .cartBody_img {
+            border-radius: calc($borderRadius * 2);
+            overflow: hidden;
+            margin: .5rem;
+            width:90%;
+            height: 20vh;
+
+            img {
+                width: 100%;
+                height: 100%;
+                transition: $noramlTransition;
+                filter: brightness(50%)
+    
+            }
+        }
+
+        .cartBody_details {
+            margin: 1rem;
+            h3 {
+                font-size: 1em;
+                text-align: center;
+                font-weight: 700;
+                border-radius: $borderRadius;
+                background-color: $secoundryColor;
+                color: white
+            }
+
+            .cartBody_details_data {
+                @include dFlex;
+                justify-content: space-between;
+                
+
+                .cartBody_details_data_text {
+                    .spanMajor {
+                        display: block;
+                        font-weight: bolder;
+                        color: $secoundryColor;
+                    }
+
+                    .spanMinor {
+                        display: block;
+                        color: $liteGray;
+                        font-size: 14px;
+                    }
+                    .review{
+                        color: $gray;
+                        i{
+                            color: $secoundryColor;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            .cartBody_details_data_price {
+                font-size: 12px;
+                border-radius: $borderRadius;
+                border: 2px solid $primaryColor;
+                padding: 0.2em 0.5em ;
+                transition: $noramlTransition;
+                &:hover {
+                    border: 2px solid $secoundryColor;
+
+                    .priceCurrency{
+                        color: $primaryColor;
+                    }
+                }
+
+                .stars{
+                    display: block;
+                    
+                }
+
+                .itemPrice {
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color: $primaryColor;
+                }
+
+                .priceCurrency {
+                    color: $secoundryColor;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
