@@ -28,7 +28,6 @@ function SignIn() {
     usernameErr: null,
     passwordErr: null,
   });
-  let { message } = useSelector((MessageReducer) => MessageReducer);
   const { darkMode } = useContext(DarkModeContext);
 
   const regex = new RegExp('^[a-zA-Z0-9!@#$%]+$');

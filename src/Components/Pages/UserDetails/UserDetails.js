@@ -16,6 +16,11 @@ function UserDetails() {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (!user) {
+      history.push('/login');
+    }
+  }, [user])
   const [userData, setUserData] = useState({
     username: `${user.username}`,
     firstName: `${user.firstName}`,
@@ -90,14 +95,7 @@ function UserDetails() {
         ...userData,
         password: e.target.value,
       });
-      setError({
-        ...error,
-        confirmPasswordErr:
-          e.target.value.length === 0 ? 'Confrim Password required!'
-            : e.target.value !== userData.confirmPassword
-              ? 'Confirm password incorrect !'
-              : null,
-      });
+
       setError({
         ...error,
         passwordErr:
@@ -106,6 +104,8 @@ function UserDetails() {
             : passwordRegex.test(e.target.value)
               ? null
               : 'password length not less than 8 characters contains at least one lowercase , one uppercase , at least one digit and special character [ example : *@%$#] ',
+        confirmPasswordErr: e.target.value !== userData.confirmPassword ? 'Confirm password incorrect !' : null,
+
       });
     } else if (e.target.name === 'firstName') {
       setUserData({
@@ -189,7 +189,12 @@ function UserDetails() {
       userData.country
     ) {
 
-      AuthService.update(userData, user.id)
+      AuthService.update(userData, user.id).then(() => {
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+
+      })
 
     } else {
       toast.info(`You should to fill every field`, {
@@ -206,23 +211,23 @@ function UserDetails() {
             <div className='container'>
               <img></img>
               <div className='userData_value'>
-                <span className='title'>UserName</span>
+                <span className='title'>UserName:</span>
                 <span className='value'>{user.username}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'> First Name</span>
+                <span className='title'> First Name:</span>
                 <span className='value'>{user.firstName}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'>Last Name</span>
+                <span className='title'>Last Name:</span>
                 <span className='value'>{user.lastName}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'>Email Address</span>
+                <span className='title'>Email:</span>
                 <span className='value'>{user.email}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'>Country</span>
+                <span className='title'>Country:</span>
                 <span className='value'>{user.country}</span>
               </div>
 
