@@ -8,20 +8,19 @@ import authHeader from '../../../services/auth-header';
 import UserService from '../../../services/user.service';
 import { login } from '../../../redux/actions/auth';
 import { DarkModeContext } from "../../../context/DarkMode";
+import { useHistory, Redirect } from 'react-router-dom';
 
 function UserDetails() {
-  let { isLoggedIn, user } = useSelector(({ AuthReducer }) => AuthReducer);
+  let { user } = useSelector(({ AuthReducer }) => AuthReducer);
   const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
-
+  const history = useHistory();
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   authHeader();
-  //   UserService.getUserBoard();
-  //   return () => {
-  //     //cleanup
-  //   };
-  // }, []);
+  useEffect(() => {
+    if (!user) {
+      history.push('/login');
+    }
+  }, [user])
   const [userData, setUserData] = useState({
     username: `${user.username}`,
     firstName: `${user.firstName}`,
@@ -40,6 +39,7 @@ function UserDetails() {
     usernameErr: null,
     passwordErr: null,
     birthdayErr: null,
+    confirmPasswordErr: null
   });
   const emailRegex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{3}');
   const passwordRegex = new RegExp(
@@ -95,6 +95,7 @@ function UserDetails() {
         ...userData,
         password: e.target.value,
       });
+
       setError({
         ...error,
         passwordErr:
@@ -103,6 +104,8 @@ function UserDetails() {
             : passwordRegex.test(e.target.value)
               ? null
               : 'password length not less than 8 characters contains at least one lowercase , one uppercase , at least one digit and special character [ example : *@%$#] ',
+        confirmPasswordErr: e.target.value !== userData.confirmPassword ? 'Confirm password incorrect !' : null,
+
       });
     } else if (e.target.name === 'firstName') {
       setUserData({
@@ -161,6 +164,16 @@ function UserDetails() {
               : 'country not less than 3 characters ',
       });
     }
+    else if (e.target.name === 'confirmPassword') {
+      setError({
+        ...error,
+        confirmPasswordErr:
+          e.target.value.length === 0 ? 'Confrim Password required!'
+            : e.target.value !== userData.password
+              ? 'Confirm password incorrect !'
+              : null,
+      });
+    }
   };
 
   const updateData = (e) => {
@@ -175,15 +188,14 @@ function UserDetails() {
       userData.birthday &&
       userData.country
     ) {
-      try {
-        AuthService.update(userData, user.id).then(() => {
-          dispatch(login({ username: userData.username, password: userData.password }));
-        });
-      } catch (error) {
-        toast.info(`Something Wrong here!`, {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      }
+
+      AuthService.update(userData, user.id).then(() => {
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+
+      })
+
     } else {
       toast.info(`You should to fill every field`, {
         position: toast.POSITION.TOP_CENTER,
@@ -199,24 +211,24 @@ function UserDetails() {
             <div className='container'>
               <img></img>
               <div className='userData_value'>
-                <span className='title'>UserName</span>
-                <span className='value'>{userData.username}</span>
+                <span className='title'>UserName:</span>
+                <span className='value'>{user.username}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'> First Name</span>
-                <span className='value'>{userData.firstName}</span>
+                <span className='title'> First Name:</span>
+                <span className='value'>{user.firstName}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'>Last Name</span>
-                <span className='value'>{userData.lastName}</span>
+                <span className='title'>Last Name:</span>
+                <span className='value'>{user.lastName}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'>Email Address</span>
-                <span className='value'>{userData.email}</span>
+                <span className='title'>Email:</span>
+                <span className='value'>{user.email}</span>
               </div>
               <div className='userData_value'>
-                <span className='title'>Country</span>
-                <span className='value'>{userData.country}</span>
+                <span className='title'>Country:</span>
+                <span className='value'>{user.country}</span>
               </div>
 
             </div>
@@ -235,6 +247,7 @@ function UserDetails() {
                     type="text"
                     className="form-control"
                     name="username"
+                    id="username"
                     value={userData.username}
                     onChange={(e) => handleChange(e)}
                   />
@@ -250,6 +263,7 @@ function UserDetails() {
                     type="text"
                     className="form-control"
                     name="firstName"
+                    id="firstName"
                     value={userData.firstName}
                     onChange={(e) => handleChange(e)}
                   />
@@ -263,6 +277,7 @@ function UserDetails() {
                   </label>
                   <input
                     type="text"
+                    id="lastName"
                     className="form-control"
                     name="lastName"
                     value={userData.lastName}
@@ -273,7 +288,7 @@ function UserDetails() {
 
                 <div className="userDate_input col-md-5">
                   <label
-                    htmlFor="exampleInputEmail1"
+                    htmlFor="email"
                     className="form-label">
                     Email address
                   </label>
@@ -281,6 +296,7 @@ function UserDetails() {
                     type="email"
                     className="form-control"
                     name="email"
+                    id="email"
                     value={userData.email}
                     onChange={(e) => handleChange(e)}
                   />
@@ -296,6 +312,7 @@ function UserDetails() {
                     min="1920-01-01"
                     max="2010-12-31"
                     type="date"
+                    id="birthday"
                     className="form-control"
                     name="birthday"
                     value={userData.birthday}
@@ -312,6 +329,7 @@ function UserDetails() {
                   </label>
                   <input
                     type="text"
+                    id="country"
                     className="form-control"
                     name="country"
                     value={userData.country}
@@ -321,12 +339,13 @@ function UserDetails() {
                 </div>
                 <div className="userDate_input col-md-5">
                   <label
-                    htmlFor="exampleInputPassword1"
+                    htmlFor="password"
                     className="form-label">
                     Password
                   </label>
                   <input
                     type="password"
+                    id="password"
                     className="form-control"
                     name="password"
                     value={userData.password}
@@ -334,21 +353,33 @@ function UserDetails() {
                   />
                   <p className="text-danger">{error.passwordErr}</p>
                 </div>
+                <div className="userDate_input col-md-5">
+                  <label
+                    htmlFor="confirmPassword"
+                    className="form-label">
+                    Confrim Password
+                  </label>
+                  <input
+                    id="confirmPassword"
+                    type="password"
+                    className="form-control"
+                    name="confirmPassword"
+                    value={userData.confirmPassword}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  <p className="text-danger">{error.confirmPasswordErr}</p>
+                </div>
               </div>
 
               <button
                 type="submit"
-                className="btn btn-primary me-5">
+                className="btn btn-primary ms-5 mt-2">
                 Update
               </button>
             </form>
           </div>
-
-
         </div>
-
       </div>
-
     </div>
   );
 }

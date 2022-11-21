@@ -57,10 +57,11 @@ class AuthService {
         toast.success(`Updated Successfuly!`, {
           position: toast.POSITION.TOP_CENTER,
         });
-
+        this.logout()
         return data;
       })
       .catch(({ response }) => {
+        console.log(response.data)
         toast.error(`${response.data.message.toString()}`, {
           position: toast.POSITION.TOP_CENTER,
         });
