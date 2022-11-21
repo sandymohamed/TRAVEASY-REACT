@@ -92,6 +92,14 @@ function UserDetails() {
       });
       setError({
         ...error,
+        confirmPasswordErr:
+          e.target.value.length === 0 ? 'Confrim Password required!'
+            : e.target.value !== userData.confirmPassword
+              ? 'Confirm password incorrect !'
+              : null,
+      });
+      setError({
+        ...error,
         passwordErr:
           e.target.value.length === 0
             ? 'This Field is Required'

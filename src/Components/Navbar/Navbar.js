@@ -42,7 +42,6 @@ function NavbarComponant() {
     toggleDarkMode(darkMode === true ? false : true)
   };
 
-  console.log(user.firstName, currentUser.firstName)
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -85,7 +84,7 @@ function NavbarComponant() {
           <ul>
             <li className={`userInfo ${!isLoggedIn ? 'd-none' : ''}`}>
               <i className="fa-solid fa-user"></i>
-              <span onClick={setShow} style={{ cursor: "pointer" }}>{user.firstName}</span>
+              <span onClick={setShow} style={{ cursor: "pointer" }}>{user?.firstName}</span>
               <ul className={`${show ? 'd-none' : ''} `} >
                 <li>
                   <span className='userInfo_icon'>
