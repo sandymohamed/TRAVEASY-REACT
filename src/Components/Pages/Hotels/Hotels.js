@@ -107,7 +107,7 @@ const Hotels = () => {
                     city={hotel.City.City_Name}
                     Evaluation={hotel.Evaluation}
                     Price={hotel.Price}
-                    img={hotel.ImgURL[0]}
+                    // img={hotel.ImgURL[0]}
 
                     // description={hotel.Description}
                     hotelId={hotel._id}
