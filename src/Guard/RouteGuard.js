@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -8,7 +8,7 @@ const GuardedRoute = ({ component: Component, auth, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={(props) => (isLoggedIn === true ? <Component {...props} /> : <Redirect to="/login" />)}
+      render={(props) => (isLoggedIn === true ? <Component {...props} /> : <Redirect to="/forbiden" />)}
     />
   );
 };
