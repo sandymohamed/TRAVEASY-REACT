@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { bookedHolidayByUser } from '../../../services/holidaysServ';
-import { bookedHotelByUser, getTotalPrice } from '../../../services/hotelsServ';
+import { bookedHotelByUser } from '../../../services/hotelsServ';
 import calenderIcon from "../../../assets/calender.png"
 
 import dummyHotel from "../../../assets/card/dummyhotel.jpg"
@@ -16,19 +16,12 @@ const UserReservations = () => {
     const [hotelReservations, setHReservations] = useState([])
     const [holidayReservations, setTReservations] = useState([])
     const [FlightReservations, setFlightReservations] = useState([])
-     
+
 
     const userId = useSelector((({ AuthReducer }) => AuthReducer.user.username))
     let user = (userId) ? userId : null
 
-    const GetTotal =({id})=>{
-        const [total, setTotal]= useState(0);
-        getTotalPrice(id).then(res => console.log(res))
-        console.log(total);
-
-      return   <span className='data'>{total}</span>
-
-    }
+  
     useEffect(() => {
         bookedHotelByUser(user).then(res => setHReservations(res))
         bookedHolidayByUser(user).then(res => setTReservations(res))
@@ -42,7 +35,7 @@ const UserReservations = () => {
                 <div className='container'>
                     <div className='userReservations_Img'>
                         <span className='cloud'></span>
-                        <img src={calenderIcon}></img>
+                        <img src={calenderIcon} alt=""></img>
                         <h2 className='text-center'>Hotels Reservations</h2>
                     </div>
                     <div className='userReservations_data'>
@@ -58,7 +51,7 @@ const UserReservations = () => {
 
                                                     <div className='row'>
                                                         <div className='cardImg col-md-3'>
-                                                            <img src={(item.ImgURL)? item.ImgURL[0] :dummyHotel}></img>
+                                                            <img alt="" src={(item.ImgURL) ? item.ImgURL[0] : dummyHotel}></img>
                                                         </div>
 
                                                         {/* /////// */}
@@ -75,19 +68,14 @@ const UserReservations = () => {
 
                                                                     </div>
                                                                     <div className='period'>
-                                                                        <span className='title'>Period</span>
-                                                                        <span className='data'>{item.Period}</span>
+                                                                        <span className='title'>Single Rooms:</span>
+                                                                        <span className='data'>{item.Single}</span>
                                                                     </div>
                                                                     <div className='roomCount'>
-                                                                        <span className='title'>Room Count</span>
-                                                                        <span className='data'> {item.RoomCount}</span>
+                                                                        <span className='title'>Double Rooms:</span>
+                                                                        <span className='data'> {item.Double}</span>
                                                                     </div><br />
-                                                                    {/* <div className='period'> */}
-                                                                        {/* <span className='title'>Total Price</span> */}
-                                                                        {/* <GetTotal id={item._id} /> */}
 
-                                                                        {/* <span className='data'>{getTotal(item._id)}</span> */}
-                                                                    {/* </div> */}
                                                                     <div className='period'>
                                                                         <span className='title'>created At</span>
                                                                         <span className='data'>{setFormatDate(item.createdAt)}</span>
@@ -137,9 +125,9 @@ const UserReservations = () => {
                     {/* ******************************** Holiday *****************************  */}
                     <div className='userReservations_Img'>
                         <span className='cloud'></span>
-                        <img src={calenderIcon}></img>
+                        <img src={calenderIcon} alt=""></img>
                         <h2 className='text-center'>Holiday Reservations</h2>
-                    </div> 
+                    </div>
                     <div className='userReservations_data'>
                         <div className='container'>
                             <div className='row'>
@@ -153,7 +141,7 @@ const UserReservations = () => {
 
                                                     <div className='row'>
                                                         <div className='cardImg col-md-3'>
-                                                        <img src={(item.ImgURL)? item.ImgURL[0] :dummyHotel}></img>
+                                                            <img src={(item.ImgURL) ? item.ImgURL[0] : dummyHotel} alt=""></img>
                                                         </div>
 
                                                         {/* /////// */}
@@ -163,15 +151,12 @@ const UserReservations = () => {
                                                                 <div className='cardInformation'>
                                                                     <div className='confirmation'>
                                                                         <span className='title'>Acceptance: </span>
-                                                                        <span className='data pending'> {item.IsApprove? "yes" : "No"}</span>
+                                                                        <span className='data pending'> {item.IsApprove ? "yes" : "No"}</span>
                                                                         {/* <span className='data confirmed'>Confirmed</span>
                                                             <span className='data canceled'>Confirmed</span> */}
 
                                                                     </div>
-                                                                    <div className='period'>
-                                                                        <span className='title'>Period</span>
-                                                                        <span className='data'>{item.Period}</span>
-                                                                    </div>
+                                                                   
                                                                     <div className='roomCount'>
                                                                         <span className='title'>RoomCount</span>
                                                                         <span className='data'> {item.RoomCount}</span>
@@ -229,12 +214,12 @@ const UserReservations = () => {
                     </div>
 
 
-                     {/* ******************************** Flight *****************************  */}
-                     <div className='userReservations_Img'>
+                    {/* ******************************** Flight *****************************  */}
+                    <div className='userReservations_Img'>
                         <span className='cloud'></span>
-                        <img src={calenderIcon}></img>
+                        <img src={calenderIcon} alt=""></img>
                         <h2 className='text-center'>Flight Reservations</h2>
-                    </div> 
+                    </div>
                     <div className='userReservations_data'>
                         <div className='container'>
                             <div className='row'>
@@ -248,7 +233,7 @@ const UserReservations = () => {
 
                                                     <div className='row'>
                                                         <div className='cardImg col-md-3'>
-                                                            <img src={dummyFlight}></img>
+                                                            <img src={dummyFlight} alt=""></img>
                                                         </div>
 
                                                         {/* /////// */}
@@ -258,52 +243,52 @@ const UserReservations = () => {
                                                                 <div className='cardInformation'>
                                                                     <div className='confirmation'>
                                                                         <span className='title'>Acceptance: </span>
-                                                                        <span className='data pending'> {item.IsBooking? "yes" : "No"}</span>
-                                                                       
+                                                                        <span className='data pending'> {item.IsBooking ? "yes" : "No"}</span>
+
                                                                     </div>
                                                                     {
-                                                                        (item.Flight)&&(
-<>
-                                                                    
-                                                                    <div className='period'>
-                                                                        <span className='title'>Departure Date</span>
-                                                                        <span className='data'>{setFormatDate(item.Flight.DepartureDate)}</span>
-                                                                    </div>
-                                                                    <div className='roomCount'>
-                                                                        <span className='title'>Return Date</span>
-                                                                        <span className='data'> {setFormatDate(item.Flight.ReturnDate)}</span>
-                                                                    </div>
-                                                                    <div className='period'>
-                                                                        <span className='title'>Flying From</span>
-                                                                        <span className='data'>{item.Flight.FlyingFrom}</span>
-                                                                    </div>
-                                                                    <div className='period'>
-                                                                        <span className='title'>Flying To</span>
-                                                                        <span className='data'>{item.Flight.FlyingTo}</span>
-                                                                    </div>
-                                                                    <br />
-                                                                    <div className='period'>
-                                                                        <span className='title'>Trip Number</span>
-                                                                        <span className='data'>{item.Flight.TravellerCount}</span>
-                                                                    </div>
-                                                                    <div className='period'>
-                                                                        <span className='title'>Seat no</span>
-                                                                        <span className='data'>{item.Flight.Child}</span>
-                                                                    </div>
+                                                                        (item.Flight) && (
+                                                                            <>
 
-                                                                    <div className='period'>
-                                                                        <span className='title'>Infant</span>
-                                                                        <span className='data'>{item.Flight.Infant}</span>
-                                                                    </div>
+                                                                                <div className='period'>
+                                                                                    <span className='title'>Departure Date</span>
+                                                                                    <span className='data'>{setFormatDate(item.Flight.DepartureDate)}</span>
+                                                                                </div>
+                                                                                <div className='roomCount'>
+                                                                                    <span className='title'>Return Date</span>
+                                                                                    <span className='data'> {setFormatDate(item.Flight.ReturnDate)}</span>
+                                                                                </div>
+                                                                                <div className='period'>
+                                                                                    <span className='title'>Flying From</span>
+                                                                                    <span className='data'>{item.Flight.FlyingFrom}</span>
+                                                                                </div>
+                                                                                <div className='period'>
+                                                                                    <span className='title'>Flying To</span>
+                                                                                    <span className='data'>{item.Flight.FlyingTo}</span>
+                                                                                </div>
+                                                                                <br />
+                                                                                <div className='period'>
+                                                                                    <span className='title'>Trip Number</span>
+                                                                                    <span className='data'>{item.Flight.TravellerCount}</span>
+                                                                                </div>
+                                                                                <div className='period'>
+                                                                                    <span className='title'>Seat no</span>
+                                                                                    <span className='data'>{item.Flight.Child}</span>
+                                                                                </div>
 
-                                                                    <div className='period'>
-                                                                        <span className='title'>Cabin Class</span>
-                                                                        <span className='data'>{item.Flight.CabinClass}</span>
-                                                                    </div>
-                                                                    </>  )
-}
+                                                                                <div className='period'>
+                                                                                    <span className='title'>Infant</span>
+                                                                                    <span className='data'>{item.Flight.Infant}</span>
+                                                                                </div>
+
+                                                                                <div className='period'>
+                                                                                    <span className='title'>Cabin Class</span>
+                                                                                    <span className='data'>{item.Flight.CabinClass}</span>
+                                                                                </div>
+                                                                            </>)
+                                                                    }
                                                                 </div>
-                                                                
+
                                                             </div>
                                                         </div>
 

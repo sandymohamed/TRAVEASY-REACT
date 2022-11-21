@@ -21,10 +21,10 @@ const BookHotel = () => {
   let user = (userId) ? userId : null
   const userName = (username) ? username : null
   const initialValues = {
-    RoomCount: "",
+    // RoomCount: "",
     AdultCount: "",
     Child: "",
-    Period: "",
+    // Period: "",
     Single: "",
     Double: "",
     IsApprove: false,
@@ -33,12 +33,14 @@ const BookHotel = () => {
     endDate: "",
     Hotels: `${id}`,
     Tourist: `${user}`,
+    // totalPrice:0
+
     // Guide: `${user}`
   };
 
   const handleDelete = (id, user) => {
-      deleteHotelFeedback(id)
-      toast(`Deleted Successfully!`);
+    deleteHotelFeedback(id)
+    toast(`Deleted Successfully!`);
 
   }
 
@@ -67,21 +69,21 @@ const BookHotel = () => {
                       return (<div className='feedback-card fw-semibold position-relative mb-2' key={i}>
                         {
 
-(item.Tourist)?
-                          (item.Tourist.username === userName)?(  <button 
-                            className='btn btn-danger position-absolute end-0 me-5' 
-                            onClick={() => handleDelete(item._id, item.Tourist.username)}
+                          (item.Tourist) ?
+                            (item.Tourist.username === userName) ? (<button
+                              className='btn btn-danger position-absolute end-0 me-5'
+                              onClick={() => handleDelete(item._id, item.Tourist.username)}
                             >delete</button>
-                          ):null
-                          :null
+                            ) : null
+                            : null
                         }
                         <ToastContainer />
 
-                        { (item.Tourist)&&(<h4>{item.Tourist.username}</h4>) }
+                        {(item.Tourist) && (<h4>{item.Tourist.username}</h4>)}
                         <p className='text-secondary '>{item.Description}</p>
                         {/* <p className='text-end fst-italic'><span >{format(new Date(item.createdAt), 'dd/mm/yyyy')}</span></p> */}
                         <p className='text-end fst-italic'><span >{setFormatDate(item.createdAt)}</span></p>
-                        <hr/>
+                        <hr />
                       </div>)
                     })
                   )

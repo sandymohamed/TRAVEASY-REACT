@@ -36,7 +36,7 @@ const Home = () => {
 
       <Carousel>
         <Carousel.Item interval={5000}>
-          <img
+          <img 
             className="d-block "
             src={testslider}
             alt="First slide"
@@ -49,7 +49,7 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
-          <img
+          <img 
             className="d-block"
             src={testslider}
             alt="Second slide"
@@ -60,7 +60,7 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <img 
             className="d-block"
             src={testslider}
             alt="Third slide"
@@ -98,7 +98,7 @@ const Home = () => {
 
                 </div>
                 <div className='discover_img col-md-4'>
-                  <img src={flightImg} loading="lazy"></img>
+                  <img alt="" src={flightImg} loading="lazy" ></img>
                   <button className='orangeBtn'>Discover Now</button>
 
                 </div>
@@ -125,13 +125,13 @@ const Home = () => {
           <div className='container'>
             <div className="row">
               <div className='hotel-img col-md-2'>
-                <img src={hotelImg2} loading="lazy"></img>
+                <img alt="" src={hotelImg2} loading="lazy"></img>
               </div>
               <div className='hotel-article col-md-8'>
                 <article>
                   <p>Beach please!?</p>
                   <h3>Don’t call it a dream. Call it a plan</h3>
-                  <img src={hotelImg} loading="lazy"></img>
+                  <img alt="" src={hotelImg} loading="lazy"></img>
 
                   <Link className='orangeBtn' to='hotels'>Discover Now </Link>
 
@@ -173,7 +173,7 @@ const Home = () => {
               </div>
               <article className='tour-article col-md-6'>
                 <h3>Travel makes you realize that no matter how much you know,<br /> there’s always more to learn.</h3>
-                <img src={tourImg} loading="lazy" ></img>
+                <img alt="" src={tourImg} loading="lazy" ></img>
                 <Link className='orangeBtn' to='holidays'>Discover Now </Link>
 
               </article>

@@ -7,7 +7,6 @@ import { DarkModeContext } from '../../../context/DarkMode';
 
 const HotelDetails = ({ hotelId }) => {
     const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
-    console.log(hotelId)
     const [hotel, setHotel] = useState({})
 
     useEffect(() => {
