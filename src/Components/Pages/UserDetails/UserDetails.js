@@ -19,7 +19,6 @@ function UserDetails() {
   useEffect(() => {
     if (!user) {
       history.push('/login');
-      console.log(userData)
     }
   }, [user])
   const [userData, setUserData] = useState({
