@@ -16,12 +16,16 @@ import { getHotelsLimit } from '../../../services/hotelsServ';
 import { geHolidaysLimit } from '../../../services/holidaysServ';
 import { Link } from 'react-router-dom';
 import { getAllFlight } from '../../../services/FlightService';
+import { counter } from '@fortawesome/fontawesome-svg-core';
 
 const Home = () => {
 
   const [hotels, setHotels] = useState([]);
   const [holidays, setHolidays] = useState([]);
   const [AirLineList, setAirLineList] = useState([]);
+  const [isBook, setIsBook] = useState();
+
+  let countcart  = 1
 
   let { isLoggedIn, user } = useSelector(({ AuthReducer }) => AuthReducer);
   let { message } = useSelector((MessageReducer) => MessageReducer);
@@ -87,11 +91,14 @@ const Home = () => {
 
                 <div className='discover_cards  col-md-7'>
 
-                  {AirLineList.map((AirLine, index) => {
-                    if (index < 3) {
+                  {AirLineList.map((AirLine, index) => {                 
+                    if (countcart < 3 &&  AirLine.NumberTickets > 0) {
+                      countcart ++;
                       return (
                         <FlightCard
+                          key={AirLine._id}
                           Flightobj={AirLine}
+                          setIsBook={setIsBook}
                         />
                       );
                     }

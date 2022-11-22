@@ -47,6 +47,7 @@ function FlightCard({ Flightobj, setIsBook }) {
     try {
       bookedFlight(user.id, Flightobj._id, PassportNumber, paid).then((res) => res);
       setIsBook(true);
+      setShowBook(false);
       toast.success(`booking confirmed`, {
         position: toast.POSITION.TOP_CENTER,
       });
@@ -239,8 +240,8 @@ function FlightCard({ Flightobj, setIsBook }) {
               </span>
               <div className="container_data">
                 <div className="data">
-                  <p className="data_to"> NumberTickets : {Flightobj.NumberTickets}</p>
-                  <p className="data_to"> CabinClass : {Flightobj.CabinClass}</p>
+                  <p className="data_to"> Number Tickets : {Flightobj.NumberTickets}</p>
+                  <p className="data_to"> Cabin Class : {Flightobj.CabinClass}</p>
                   <p className="data_to"> Price : {Flightobj.Price}</p>
                 </div>
               </div>
