@@ -24,6 +24,7 @@ import React from 'react';
 import UserHolidayRes from './Components/Pages/UserReservations/UserHolidayRes';
 import Payment from './Components/Payment/Payment';
 import Forbiden from './Components/Pages/Forbiden/Forbiden';
+import StripePayment from './Components/Shared/Stripe/StripePayment';
 
 function App() {
   return (
@@ -78,6 +79,10 @@ function App() {
             <Route
               path={'/userholidayReservation'}
               component={UserHolidayRes}
+            />
+             <Route
+              path={'/stripe'}
+              component={StripePayment}
             />
 
             <Route path={"/forbiden"} component={Forbiden} />

@@ -10,6 +10,7 @@ import Payment from '../../Payment/Payment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DarkModeContext } from '../../../context/DarkMode';
+import StripePayment from '../Stripe/StripePayment';
 
 
 const BookForm = ({ initialValues, bookHotel, id, price }) => {
@@ -196,8 +197,10 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
               <h2>Total price: {total}</h2>
 
             </div>
-            <div className='booking'>
-              <Payment paid={paid} setPaid={setPaid} />
+            <div className='booking p-4'>
+              {/* <Payment paid={paid} setPaid={setPaid} /> */}
+              <StripePayment paid={paid} setPaid={setPaid} type="button" onClick={(e)=> e.preventDefault()}/>
+              
               <button className="primaryBtn" type="submit"> Book</button>
               <ToastContainer />
 

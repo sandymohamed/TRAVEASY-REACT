@@ -10,6 +10,7 @@ import {
   getHotelsByCityName,
   getHotelByName,
   getHotelByPrice,
+  getImage,
 } from '../../../services/hotelsServ';
 import { useEffect, useState } from 'react';
 import ServiceSection from '../../Shared/serviceSection/ServiceSection';
@@ -27,6 +28,7 @@ const Hotels = () => {
   const [search, setSearch] = useState('');
   const [price, setPrice] = useState(null);
   const [rate, setRate] = useState(null);
+  const [imgs, setImgs] = useState([]);
 
   const filterHotels = (filter) => {
     switch (filter) {
@@ -56,7 +58,8 @@ const Hotels = () => {
     getCities().then((res) => setCities(res));
 
     getHotels().then((res) => setHotels(res));
-    console.log(hotels);
+    getImage('1668990716294-traveasy-images.jpg').then((res=> setImgs(res)))
+   console.log(imgs);
   }, []);
 
   const serviceSection = (
@@ -107,8 +110,7 @@ const Hotels = () => {
                     city={hotel.City.City_Name}
                     Evaluation={hotel.Evaluation}
                     Price={hotel.Price}
-                    // img={hotel.ImgURL[0]}
-
+                    img='1668990716294-traveasy-images.jpg'
                     // description={hotel.Description}
                     hotelId={hotel._id}
                     link={`hotels/${hotel._id}`}
