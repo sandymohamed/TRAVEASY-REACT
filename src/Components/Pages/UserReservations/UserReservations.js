@@ -56,7 +56,11 @@ const UserReservations = () => {
 
                                                         {/* /////// */}
                                                         <div className='cardData col-md-9'>
-                                                            <span className='cardData_name text-center'> {item.Hotels.HotelName}</span>
+                                                            {
+                                                                (item.Hotels)&&
+                                                                (<span className='cardData_name text-center'> {item.Hotels.HotelName}</span>
+                                                                )
+                                                            }
 
                                                             <div className='cardData_container'>
                                                                 <div className='cardInformation'>

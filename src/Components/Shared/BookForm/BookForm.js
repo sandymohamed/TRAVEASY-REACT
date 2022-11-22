@@ -199,26 +199,28 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
             </div>
             <div className='booking p-4'>
               {/* <Payment paid={paid} setPaid={setPaid} /> */}
-              <div>
-              <button type="button" className='pay-button'
-               onClick={(e)=> 
-                {e.preventDefault(); 
-                setPaid(true)}}
+          <div>
+                <button type="button" className='pay-button'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setPaid(true)
+                  }}
                 >
-              <StripePayment  />
+                  <StripePayment />
 
-              </button>
+                </button>
 
-              <input
-              type="checkbox"
-              className="btn btn-info fs-4"
-              name="pay"
-              onChange={() => {setPaid(false);}}
-              />
-             <label className="text-primary fs-5">Pay Later</label> 
+                <input
+                  type="checkbox"
+                  className="btn btn-info fs-4"
+                  name="pay"
+                  onChange={() => { setPaid(false); }}
+                />
+                <label className="text-primary fs-5">Pay Later</label>
               </div>
-           
-              
+    
+
+
               <button className="primaryBtn" type="submit"> Book</button>
               <ToastContainer />
 
