@@ -1,0 +1,59 @@
+@import "../../Style/colors.scss";
+@import "../../Style/shortcuts.scss";
+
+
+
+footer {
+    padding-top: 1rem;
+    background-color: darken($primaryColor, 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .logo {
+        background-color:#68a4d2 ;
+        padding: 10px 20px;
+        border-radius: calc($borderRadius * 2);
+        margin-bottom: 1rem;
+        transition: $noramlTransition;
+        &:hover{
+            background-color:#3f759e ;
+        }
+        img{
+        width: 120px;
+
+        }
+    }
+
+    .copyright {
+        p{
+            color: white ;
+
+        
+        }
+    }
+}
+
+
+.footerfalse {
+  
+    background-color: $secoundryColorDark;
+ 
+
+    .logo {
+        background-color: lighten($secoundryColorDark, 20) ;
+     
+        &:hover{
+            background-color: lighten($secoundryColorDark, 40) ;
+        }
+  
+    }
+
+    .copyright {
+        p{
+            color: white ;
+
+        }
+    }
+}
