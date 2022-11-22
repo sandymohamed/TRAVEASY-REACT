@@ -3,7 +3,9 @@ import './home.scss';
 import FlightCard from '../../Shared/cards/FlightCard';
 import Vcart from '../../Shared/cards/Vcard';
 import Carousel from 'react-bootstrap/Carousel';
-import testslider from "../../../assets/cover/testcover.jpg"
+import testslider from "../../../assets/cover/cover1.jpg"
+import testslider2 from "../../../assets/cover/cover2.jpg"
+import testslider3 from "../../../assets/cover/cover3.jpg"
 import flightImg from "../../../assets/header/flight.png"
 import hotelImg from "../../../assets/hotel-home.png"
 import hotelImg2 from "../../../assets/hotel-home-2.png"
@@ -33,25 +35,24 @@ const Home = () => {
 
   return (
     <>
-
       <Carousel>
         <Carousel.Item interval={5000}>
-          <img 
+          <img
             className="d-block "
             src={testslider}
             alt="First slide"
           />
           <Carousel.Caption>
             <h3 data-aos="fade-up"
-              data-aos-delay="200">First slide label</h3>
+              data-aos-delay="200">Remember that happiness is a way of travel, not a destination.</h3>
             <p data-aos="fade-up"
-              data-aos-delay="300">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              data-aos-delay="300">The world is a book and those who do not travel read only one page.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500}>
-          <img 
+          <img
             className="d-block"
-            src={testslider}
+            src={testslider3}
             alt="Second slide"
           />
           <Carousel.Caption>
@@ -60,9 +61,9 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img 
+          <img
             className="d-block"
-            src={testslider}
+            src={testslider2}
             alt="Third slide"
           />
           <Carousel.Caption>
@@ -163,8 +164,6 @@ const Home = () => {
                         city={holiday.City.City_Name}
                         Evaluation={holiday.Evaluation}
                         Price={holiday.Price}
-                        // img={holiday.ImgURL[0]}
-                        // description={holiday.Description}
                         link={`holidays/${holiday._id}`}
                       />
                     </div>
