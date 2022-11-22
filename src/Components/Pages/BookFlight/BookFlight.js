@@ -12,8 +12,9 @@ import { setFormatDate } from '../../../services/DateformatService';
 import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 
-const headerTitle = <> Find your Tayara</>;
-const headerParagraph = <> ana b7b masr gdn msh adaer asafr laaaa</>;
+const headerTitle = <>We don’t need objects; we need adventures.</>;
+const headerParagraph = <> Once a year, go someplace you’ve never been before.</>;
+
 
 const BookFlight = () => {
   const [AirLineList, setAirLineList] = useState([]);

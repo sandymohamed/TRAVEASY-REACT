@@ -18,6 +18,7 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
   const [values, setValues] = useState(initialValues);
   const [total, setTotal] = useState(null);
   const [paid, setPaid] = useState(false)
+  const [showForm, setShowForm] = useState(false)
 
   const [err, setErr] = useState({
     // RoomCountErr: null,
@@ -73,7 +74,9 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
     }
 
   }
-
+  const handleShowForm = () => {
+    setShowForm(!showForm)
+  }
   const handleSubmit = (e, price) => {
     e.preventDefault()
     handleValidate(e, price)
@@ -83,7 +86,6 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
       bookHotel(hotelData)
       toast("booked successfully check your email!");
     }
-
 
   }
 
@@ -99,58 +101,57 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
 
       <div className={`bookForm book${darkMode}`}>
         <div className='showForm'>
-          {/* <button className='orangeBtn'> Booking Now</button> */}
+          <button className='orangeBtn' onClick={handleShowForm}> Booking Now</button>
 
-      
-        <Form onSubmit={(e) => { handleSubmit(e, price) }} className="my-form row">
 
-          <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicStart">
-            <Form.Label > Check in</Form.Label>
-            <Form.Control required type="date"
-              value={values.startDate}
-              name="startDate"
-              placeholder="Start Date"
-              onFocus={(e) => handleFocus(e)}
-              onChange={(e) => handleInputChange(e)} />
-            <Form.Text className="text-danger">
-              {err.startDateErr}
-            </Form.Text>
-          </Form.Group>
+          <Form onSubmit={(e) => { handleSubmit(e, price) }} className={`my-form row ${showForm ? 'd-none' : ''}`}>
+            <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicStart">
+              <Form.Label > Check in</Form.Label>
+              <Form.Control required type="date"
+                value={values.startDate}
+                name="startDate"
+                placeholder="Start Date"
+                onFocus={(e) => handleFocus(e)}
+                onChange={(e) => handleInputChange(e)} />
+              <Form.Text className="text-danger">
+                {err.startDateErr}
+              </Form.Text>
+            </Form.Group>
 
-          <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicEnd">
-            <Form.Label >Check out</Form.Label>
-            <Form.Control required type="date"
-              value={values.endDate}
-              name="endDate"
-              placeholder="Enter End Date"
-              onFocus={(e) => handleFocus(e)}
-              onChange={(e) => handleInputChange(e)} />
-            <Form.Text className="text-danger">
-              {err.endDateErr}
-            </Form.Text>
-          </Form.Group>
+            <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicEnd">
+              <Form.Label >Check out</Form.Label>
+              <Form.Control required type="date"
+                value={values.endDate}
+                name="endDate"
+                placeholder="Enter End Date"
+                onFocus={(e) => handleFocus(e)}
+                onChange={(e) => handleInputChange(e)} />
+              <Form.Text className="text-danger">
+                {err.endDateErr}
+              </Form.Text>
+            </Form.Group>
 
-          <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicSingle">
-            <Form.Label >Single Room Count</Form.Label>
-            <Form.Control required type="number" min="0" name="Single"
-              onFocus={(e) => handleFocus(e)} placeholder="Single Room Count" value={values.Single}
-              onChange={(e) => handleInputChange(e)} />
-            <Form.Text className="text-danger">
-              {err.SingleErr}
-            </Form.Text>
-          </Form.Group>
+            <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicSingle">
+              <Form.Label >Single Room Count</Form.Label>
+              <Form.Control required type="number" min="0" name="Single"
+                onFocus={(e) => handleFocus(e)} placeholder="Single Room Count" value={values.Single}
+                onChange={(e) => handleInputChange(e)} />
+              <Form.Text className="text-danger">
+                {err.SingleErr}
+              </Form.Text>
+            </Form.Group>
 
-          <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicDouble">
-            <Form.Label >Double Room Count</Form.Label>
-            <Form.Control required type="number" min="0" name="Double"
-              onFocus={(e) => handleFocus(e)} placeholder="Double  Room Count" value={values.Double}
-              onChange={(e) => handleInputChange(e)} />
-            <Form.Text className="text-danger">
-              {err.DoubleErr}
-            </Form.Text>
-          </Form.Group>
+            <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicDouble">
+              <Form.Label >Double Room Count</Form.Label>
+              <Form.Control required type="number" min="0" name="Double"
+                onFocus={(e) => handleFocus(e)} placeholder="Double  Room Count" value={values.Double}
+                onChange={(e) => handleInputChange(e)} />
+              <Form.Text className="text-danger">
+                {err.DoubleErr}
+              </Form.Text>
+            </Form.Group>
 
-          {/* <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicRoomCount">
+            {/* <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicRoomCount">
             <Form.Label >Room Count </Form.Label>
             onFocus={(e)=>handleFocus(e)}<Form.Control required type="number" min="0" placeholder="Enter Room Count" value={values.RoomCount} name="RoomCount" 
             onChange={(e) => handleInputChange(e)} />
@@ -159,29 +160,29 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
             </Form.Text>
           </Form.Group> */}
 
-          <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicAdultCount">
-            <Form.Label >Adult Count </Form.Label>
-            <Form.Control required type="number" min="0" name="AdultCount"
-              onFocus={(e) => handleFocus(e)} placeholder=" Enter Adult Count" value={values.AdultCount}
-              onChange={(e) => handleInputChange(e)} />
-            <Form.Text className="text-danger">
-              {err.AdultCountErr}
-            </Form.Text>
-          </Form.Group>
+            <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicAdultCount">
+              <Form.Label >Adult Count </Form.Label>
+              <Form.Control required type="number" min="0" name="AdultCount"
+                onFocus={(e) => handleFocus(e)} placeholder=" Enter Adult Count" value={values.AdultCount}
+                onChange={(e) => handleInputChange(e)} />
+              <Form.Text className="text-danger">
+                {err.AdultCountErr}
+              </Form.Text>
+            </Form.Group>
 
-          <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicRoomCount">
-            <Form.Label >Child Count </Form.Label>
-            <Form.Control required type="number" min="0" name="Child"
-              onFocus={(e) => handleFocus(e)} placeholder="Enter Child Count" value={values.Child}
-              onChange={(e) => handleInputChange(e)} />
-            <Form.Text className="text-danger">
-              {err.ChildErr}
-            </Form.Text>
-          </Form.Group>
+            <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicRoomCount">
+              <Form.Label >Child Count </Form.Label>
+              <Form.Control required type="number" min="0" name="Child"
+                onFocus={(e) => handleFocus(e)} placeholder="Enter Child Count" value={values.Child}
+                onChange={(e) => handleInputChange(e)} />
+              <Form.Text className="text-danger">
+                {err.ChildErr}
+              </Form.Text>
+            </Form.Group>
 
 
 
-          {/* <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicPeriod">
+            {/* <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicPeriod">
             <Form.Label >Days Number</Form.Label>
             <Form.Control required type="Number" min="0" name="Period"
               onFocus={(e)=>handleFocus(e)}placeholder="Enter Days Number" value={values.Period} 
@@ -191,14 +192,14 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
             </Form.Text>
           </Form.Group> */}
 
-          <Form.Text className="text-danger">
-            {err.globalErr}
-          </Form.Text>
-          <div className='bookAction'>
-            <div className='price'>
-              {/* <button type="button" className="orangeBtn" onClick={() => { calcTotal() }} > calc total price</button> */}
-              <span className='title'>Total price</span>
-              <span className='total'> {total && <span>L.E</span>}</span>
+            <Form.Text className="text-danger">
+              {err.globalErr}
+            </Form.Text>
+            <div className='bookAction'>
+              <div className='price'>
+                {/* <button type="button" className="orangeBtn" onClick={() => { calcTotal() }} > calc total price</button> */}
+                <span className='title'>Total price</span>
+                <span className='total'> {total && <span>L.E</span>}</span>
 
             </div>
             <div className='booking p-4'>
@@ -212,27 +213,26 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
                 >
                   <StripePayment />
 
-                </button>
+              </button>
 
-                <input
-                  type="checkbox"
-                  className="btn btn-info fs-4"
-                  name="pay"
-                  onChange={() => { setPaid(false); }}
-                />
-                <label className="text-primary fs-5">Pay Later</label>
+              <input
+              type="checkbox"
+              className="btn btn-info fs-4"
+              name="pay"
+              onChange={() => {setPaid(false);}}
+              />
+             <label className="text-primary fs-5">Pay Later</label> 
               </div>
-    
-
-
+           
+              
               <button className="primaryBtn" type="submit"> Book</button>
               <ToastContainer />
 
+              </div>
+
             </div>
 
-          </div>
-
-        </Form>
+          </Form>
         </div>
       </div>
 
