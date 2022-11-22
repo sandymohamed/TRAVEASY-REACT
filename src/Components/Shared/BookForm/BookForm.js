@@ -70,7 +70,6 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
     if (Number(checkPeriod(values.startDate, values.endDate)) >= 1
       && Number(values.Single + values.Double) >= 1) {
       setTotal(Number(values.Single + values.Double) * Number(checkPeriod(values.startDate, values.endDate)) * Number(price))
-
     }
 
   }
@@ -99,10 +98,14 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
     <>
 
       <div className={`bookForm book${darkMode}`}>
+        <div className='showForm'>
+          {/* <button className='orangeBtn'> Booking Now</button> */}
+
+      
         <Form onSubmit={(e) => { handleSubmit(e, price) }} className="my-form row">
 
           <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicStart">
-            <Form.Label >Start date</Form.Label>
+            <Form.Label > Check in</Form.Label>
             <Form.Control required type="date"
               value={values.startDate}
               name="startDate"
@@ -115,7 +118,7 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
           </Form.Group>
 
           <Form.Group className="col-md-3 inputContainer" data-aos="fade-up" data-aos-delay="400" controlId="formBasicEnd">
-            <Form.Label >End date</Form.Label>
+            <Form.Label >Check out</Form.Label>
             <Form.Control required type="date"
               value={values.endDate}
               name="endDate"
@@ -194,7 +197,8 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
           <div className='bookAction'>
             <div className='price'>
               {/* <button type="button" className="orangeBtn" onClick={() => { calcTotal() }} > calc total price</button> */}
-              <h2>Total price: {total}</h2>
+              <span className='title'>Total price</span>
+              <span className='total'> {total && <span>L.E</span>}</span>
 
             </div>
             <div className='booking p-4'>
@@ -227,6 +231,7 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
           </div>
 
         </Form>
+        </div>
       </div>
 
     </>

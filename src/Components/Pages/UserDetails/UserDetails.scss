@@ -13,20 +13,26 @@
         justify-content: space-evenly;
 
         .userData {
-             background-color: $white;
+            background-color: $white;
             background-color: $primaryColor;
             border: 10px solid lighten($primaryColor, 10);
             padding: 4rem 1rem;
             border-radius: calc($borderRadius * 3);
             margin-top: 10px;
             width: 400px;
+
             .userData_value {
                 margin: 1rem 0;
                 display: flex;
                 flex-wrap: no-wrap;
+
                 .title {
-                    // background-color: $white;
-                    padding: 5px;
+                    background-color: $white;
+                    color: darken($primaryColor, 10);
+                    border: 4px solid lighten($primaryColor, 10);
+
+
+                    padding: 5px 10px;
                     border-radius: $borderRadius;
                     margin-right: 10px;
                     width: fit-content;
@@ -39,10 +45,13 @@
         }
 
         .userData_Update {
+            form {
+
+                
             margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            @include dFlex;
+            }
+
         }
 
     }
@@ -54,6 +63,7 @@
 
     background-color: $primaryColorDark;
     color: $white;
+
     .row {
 
         .userData {
@@ -64,7 +74,9 @@
 
                 .title {
                     background-color: $secoundryColor;
-                    color:$primaryColorDark ;
+                    border: 4px solid lighten($secoundryColor, 10);
+
+                    color: darken($secoundryColor, 30);
 
                 }
 

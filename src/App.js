@@ -24,14 +24,13 @@ import React from 'react';
 import UserHolidayRes from './Components/Pages/UserReservations/UserHolidayRes';
 import Payment from './Components/Payment/Payment';
 import Forbiden from './Components/Pages/Forbiden/Forbiden';
+import Footer from './Components/Footer/Footer';
 import StripePayment from './Components/Shared/Stripe/StripePayment';
 
 function App() {
   return (
-
     <BrowserRouter>
       <RootGuard>
-
         <DarkModeProvider >
           <NavbarComponant />
           <Switch>
@@ -114,9 +113,9 @@ function App() {
               component={NotFound}
             />
           </Switch>
+          <Footer/>
         </DarkModeProvider>
       </RootGuard>
-
     </BrowserRouter>
 
   );
