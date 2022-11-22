@@ -207,7 +207,24 @@ const HolidayForm = ({ initialValues, price }) => {
                     </div>
                     <div className='booking'>
                         {/* <Payment paid={paid} setPaid={setPaid} /> */}
-                        <StripePayment paid={paid} setPaid={setPaid} type="button" />
+                        <div>
+              <button type="button" className='pay-button'
+               onClick={(e)=> 
+                {e.preventDefault(); 
+                setPaid(true)}}
+                >
+              <StripePayment  />
+
+              </button>
+
+              <input
+              type="checkbox"
+              className="btn btn-info fs-4"
+              name="pay"
+              onChange={() => {setPaid(false);}}
+              />
+             <label className="text-primary fs-5">Pay Later</label> 
+              </div>
 
                         <button className="primaryBtn " type="submit"> Book</button>
                         <ToastContainer />

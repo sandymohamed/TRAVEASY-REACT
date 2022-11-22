@@ -29,6 +29,7 @@ const Hotels = () => {
   const [price, setPrice] = useState(null);
   const [rate, setRate] = useState(null);
   const [imgs, setImgs] = useState([]);
+  // const [hotelName, setHotelName] = useState('');
 
   const filterHotels = (filter) => {
     switch (filter) {
@@ -58,8 +59,8 @@ const Hotels = () => {
     getCities().then((res) => setCities(res));
 
     getHotels().then((res) => setHotels(res));
-    getImage('1668990716294-traveasy-images.jpg').then((res=> setImgs(res)))
-   console.log(imgs);
+  //   getImage(`${hotelName}`).then((res=> setImgs(res)))
+  //  console.log(imgs);
   }, []);
 
   const serviceSection = (
@@ -110,7 +111,7 @@ const Hotels = () => {
                     city={hotel.City.City_Name}
                     Evaluation={hotel.Evaluation}
                     Price={hotel.Price}
-                    img='1668990716294-traveasy-images.jpg'
+                    img={hotel.HotelName}
                     // description={hotel.Description}
                     hotelId={hotel._id}
                     link={`hotels/${hotel._id}`}

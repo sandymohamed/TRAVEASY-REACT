@@ -112,7 +112,7 @@ const Holidays = () => {
                     city={holiday.City.City_Name}
                     Evaluation={holiday.Evaluation}
                     Price={holiday.Price}
-                    img='1668990716294-traveasy-images.jpg'
+                    img={holiday.City.City_Name}
 
                     // img={holiday.ImgURL[0]}
                     // description={holiday.Description}
