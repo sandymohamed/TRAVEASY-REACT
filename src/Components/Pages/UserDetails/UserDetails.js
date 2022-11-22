@@ -209,27 +209,38 @@ function UserDetails() {
         <div className='row'>
           <div className='userData col-md-3'>
             <div className='container'>
-              <img></img>
-              <div className='userData_value'>
-                <span className='title'>UserName:</span>
-                <span className='value'>{user.username}</span>
+              <div >
+                <table>
+                  <tbody>
+                  <tr className='userData_value'>
+                    <td className='title'>UserName</td>
+                    <td className='value'>
+                      {user.username}
+                    </td>
+                  </tr>
+                  <tr className='userData_value'>
+                    <td className='title'> First Name</td>
+                    <td className='value'>{user.firstName}</td>
+                  </tr>
+                  <tr className='userData_value'>
+                    <td className='title'>Last Name:</td>
+                    <td className='value'>{user.lastName}</td>
+                  </tr>
+
+                  <tr className='userData_value'>
+                    <td className='title'>Email:</td>
+                    <td className='value'>{user.email}</td>
+                  </tr>
+                  <tr className='userData_value'>
+                    <td className='title'>Country</td>
+                    <td className='value'>{user.country}</td>
+                  </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className='userData_value'>
-                <span className='title'> First Name:</span>
-                <span className='value'>{user.firstName}</span>
-              </div>
-              <div className='userData_value'>
-                <span className='title'>Last Name:</span>
-                <span className='value'>{user.lastName}</span>
-              </div>
-              <div className='userData_value'>
-                <span className='title'>Email:</span>
-                <span className='value'>{user.email}</span>
-              </div>
-              <div className='userData_value'>
-                <span className='title'>Country:</span>
-                <span className='value'>{user.country}</span>
-              </div>
+
+
+
 
             </div>
           </div>
@@ -370,10 +381,9 @@ function UserDetails() {
                   <p className="text-danger">{error.confirmPasswordErr}</p>
                 </div>
               </div>
-
               <button
                 type="submit"
-                className="btn btn-primary ms-5 mt-2">
+                className="orangeBtn">
                 Update
               </button>
             </form>

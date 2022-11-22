@@ -1,41 +1,48 @@
 import React from 'react';
-
+import "./hotelService.scss"
 const HotelService = ({ setSearch, filterHotels, city, setCity, cities }) => {
   return (
     <>
-      <div className="hotelDetails">
-        <div className="hotelDetails_hotel">
-          <input
-            className="me-1"
-            type="search"
-            name="hotel"
-            placeholder="Find Your Hotel"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button
-            className="p-2"
-            onClick={() => filterHotels('name')}>
-            find
-          </button>
+      <div className="hDetails">
+        <div className='container'>
+          <div className="hotelDetails_hotel">
+            <input
+              className=""
+              type="search"
+              name="hotel"
+              placeholder="Find Your Hotel"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button
+              className="orangeBtn" onClick={() => filterHotels('name')}>
+              Find
+            </button>
+          </div>
+          <div className="hotelDetails_select">
+            <select
+              className=""
+              id="dropdown-basic"
+              defaultValue={city}
+              onClick={() => filterHotels('city')}
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}>
+              {cities &&
+                cities.map((city, i) => (
+                  <option
+                    key={i}
+                    value={city.City_Name}>
+                    {city.City_Name}
+                  </option>
+                ))}
+            </select>
+          </div>
+
+
         </div>
 
-        <select
-          className=" bg-warning m-2 p-2 border border-0 rounded city-option"
-          id="dropdown-basic"
-          defaultValue={city}
-          onClick={() => filterHotels('city')}
-          onChange={(e) => {
-            setCity(e.target.value);
-          }}>
-          {cities &&
-            cities.map((city, i) => (
-              <option
-                key={i}
-                value={city.City_Name}>
-                {city.City_Name}
-              </option>
-            ))}
-        </select>
+
+
       </div>
     </>
   );

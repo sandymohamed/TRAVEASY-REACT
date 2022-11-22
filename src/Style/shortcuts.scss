@@ -6,23 +6,12 @@ $borderRadius: 1.2em;
 //     borderRadius: 1.25em;
 //     overflow: hidden;
 // }
-@mixin primaryBtn() {
- background-color: $primaryColor;
- border: none;
- border-radius: $borderRadius;
- padding: 0 0.7em;
- color: white;
- transition: $noramlTransition;
- margin: 0.2em 0;
- &:hover{
-    background-color:$primaryColorDark ;
- }
-}
+
 @mixin primaryBtn() {
     background-color: $primaryColor;
     border: none;
     border-radius: $borderRadius;
-    padding: 0 0.7em;
+    padding: 0.3em 0.7em;
     color: white !important;
     transition: $noramlTransition;
     margin: 0.2em 0;
@@ -42,12 +31,12 @@ $borderRadius: 1.2em;
     background-color: $gray;
     border: none;
     border-radius: $borderRadius;
-    padding: 0 0.7em;
+    padding: 0.2em 0.7em;
     color: white;
     transition: $noramlTransition;
     margin: 0.2em ;
     &:hover{
-       background-color:$primaryColorDark ;
+       background-color: darken($gray, 20) ;
     }
    }
 
@@ -62,12 +51,12 @@ $borderRadius: 1.2em;
     background-color: $secoundryColor;
     border: 5px solid white;
     border-radius: $borderRadius;
-    padding: 5px 0.7em;
+    padding: 0.3em 0.7em;
     color: white;
     transition: $noramlTransition;
     margin: 0.2em ;
     &:hover{
-       background-color:$primaryColorDark ;
+       background-color: darken($secoundryColor, 20) ;
     }
    }
 
