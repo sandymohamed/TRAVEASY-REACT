@@ -122,6 +122,8 @@ const Holidays = () => {
             </div>
           </section>
         </div>
+        <br />
+        <br />
       </section>
     </>
   );
