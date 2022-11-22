@@ -10,8 +10,8 @@ import SlideBar from '../../Shared/slideBar/Slidebar';
 import { setFormatDate } from '../../../services/DateformatService';
 
 
-const headerTitle = <> Find your Tayara</>;
-const headerParagraph = <> ana b7b masr gdn msh adaer asafr laaaa</>;
+const headerTitle = <>We don’t need objects; we need adventures.</>;
+const headerParagraph = <> Once a year, go someplace you’ve never been before.</>;
 
 const Flight = () => {
   const [AirLineList, setAirLineList] = useState([]);

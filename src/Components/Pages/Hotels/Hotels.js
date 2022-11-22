@@ -18,8 +18,8 @@ import SlideBar from '../../Shared/slideBar/Slidebar';
 import StarRating from '../../Shared/Stars/Stars';
 import HotelService from '../../Shared/hotelService/HotelService';
 
-const headerTitle = <>Select Your Home </>;
-const headerParagraph = <> Get great hotel deals and the best rates at Hotels . <br></br> Indulgent holiday offers, family packages, business bundles and more. Book now</>;
+const headerTitle = <>Life is short, and the world is wide.</>;
+const headerParagraph = <> Live life with no excuses, travel with no regret. <br></br> Indulgent holiday offers, family packages, business bundles and more.</>;
 
 const Hotels = () => {
   const [hotels, setHotels] = useState([]);
@@ -59,8 +59,8 @@ const Hotels = () => {
     getCities().then((res) => setCities(res));
 
     getHotels().then((res) => setHotels(res));
-  //   getImage(`${hotelName}`).then((res=> setImgs(res)))
-  //  console.log(imgs);
+    //   getImage(`${hotelName}`).then((res=> setImgs(res)))
+    //  console.log(imgs);
   }, []);
 
   const serviceSection = (
