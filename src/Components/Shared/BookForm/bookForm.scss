@@ -146,6 +146,11 @@
                 border: 10px solid lighten($secoundryColorDark, 30);
                 background-color: lighten($secoundryColorDark, 40);
             }
+            .pay-button{
+                border: none;
+                display: flex;
+                background-color: transparent;
+            }
 
         }
 

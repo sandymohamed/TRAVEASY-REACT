@@ -49,7 +49,7 @@ class AuthService {
   update(userData, userId) {
     return instance({
       url: `/user/edit/${userId}`,
-      method: 'PUT',
+      method: 'PATCH',
       data: userData,
       headers: authHeader(),
     })
@@ -61,7 +61,7 @@ class AuthService {
         return data;
       })
       .catch(({ response }) => {
-        console.log(response.data)
+
         toast.error(`${response.data.message.toString()}`, {
           position: toast.POSITION.TOP_CENTER,
         });

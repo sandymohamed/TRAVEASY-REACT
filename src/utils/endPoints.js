@@ -21,6 +21,7 @@ export const ENDPOINTS ={
     HTOTALPRICE:`bookedHoliday/agg?id`,
     GETFEEDBACKBYHOTELID:`feedback/hotelid?hotelid=`,
     POSTFEEDBACK:`feedback/`,
+    GETIMAGES:`/img/imgName?imgName=`
 
 
 

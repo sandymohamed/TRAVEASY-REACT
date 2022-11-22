@@ -137,3 +137,12 @@ export const deleteHotelFeedback = (id) => {
   .then(res => {return(res.data)})
   .catch(err => console.log(err))
 }
+
+
+//get image by its name
+export const getImage = (imgName) => {
+  // console.log(name);
+  return instance.get(`${ENDPOINTS.GETIMAGES}${imgName}`)
+  .then(res => {return(res.data)})
+  .catch(err => console.log(err))
+}

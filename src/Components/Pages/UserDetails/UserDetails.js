@@ -27,6 +27,7 @@ function UserDetails() {
     lastName: `${user.lastName}`,
     country: `${user.country}`,
     email: `${user.email}`,
+    oldPassword: '',
     password: '',
     birthday: '',
   });
@@ -39,7 +40,8 @@ function UserDetails() {
     usernameErr: null,
     passwordErr: null,
     birthdayErr: null,
-    confirmPasswordErr: null
+    confirmPasswordErr: null,
+    oldPasswordErr: ''
   });
   const emailRegex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{3}');
   const passwordRegex = new RegExp(
@@ -164,6 +166,18 @@ function UserDetails() {
               : 'country not less than 3 characters ',
       });
     }
+    else if (e.target.name === 'oldPassword') {
+      setUserData({
+        ...userData,
+        oldPassword: e.target.value,
+      });
+
+      setError({
+        ...error,
+        oldPasswordErr:
+          e.target.value.length === 0 ? 'Old Password required!' : null,
+      });
+    }
     else if (e.target.name === 'confirmPassword') {
       setError({
         ...error,
@@ -178,7 +192,6 @@ function UserDetails() {
 
   const updateData = (e) => {
     e.preventDefault();
-    console.log(userData);
     if (
       userData.username &&
       userData.password &&
@@ -186,9 +199,10 @@ function UserDetails() {
       userData.lastName &&
       userData.email &&
       userData.birthday &&
-      userData.country
+      userData.country &&
+      userData.oldPassword
     ) {
-
+      console.log(userData)
       AuthService.update(userData, user.id).then(() => {
         setTimeout(() => {
           window.location.reload();
@@ -350,9 +364,26 @@ function UserDetails() {
                 </div>
                 <div className="userDate_input col-md-5">
                   <label
+                    htmlFor="oldPassword"
+                    className="form-label">
+                    Old Password
+                  </label>
+                  <input
+                    type="password"
+                    id="oldPassword"
+                    className="form-control"
+                    name="oldPassword"
+                    value={userData.oldPassword}
+                    onChange={(e) => handleChange(e)}
+                  />
+                  <p className="text-danger">{error.oldPasswordErr}</p>
+                </div>
+                <br />
+                <div className="userDate_input col-md-5">
+                  <label
                     htmlFor="password"
                     className="form-label">
-                    Password
+                    New Password
                   </label>
                   <input
                     type="password"

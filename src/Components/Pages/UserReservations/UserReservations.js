@@ -75,7 +75,11 @@ const UserReservations = () => {
                                                                         <span className='title'>Double Rooms:</span>
                                                                         <span className='data'> {item.Double}</span>
                                                                     </div><br />
+                                                                    <div className='confirmation'>
+                                                                        <span className='title'>Paid: </span>
+                                                                        <span className='data pending'> {item.Paid ? "yes" : "No"}</span>
 
+                                                                    </div>
                                                                     <div className='period'>
                                                                         <span className='title'>created At</span>
                                                                         <span className='data'>{setFormatDate(item.createdAt)}</span>
@@ -166,6 +170,11 @@ const UserReservations = () => {
                                                                         <span className='data'>{item.Transport}</span>
                                                                     </div>
                                                                     <br />
+                                                                    <div className='confirmation'>
+                                                                        <span className='title'>Paid: </span>
+                                                                        <span className='data pending'> {item.Paid ? "yes" : "No"}</span>
+
+                                                                    </div>
                                                                     <div className='period'>
                                                                         <span className='title'>createdAt</span>
                                                                         <span className='data'>{setFormatDate(item.createdAt)}</span>
