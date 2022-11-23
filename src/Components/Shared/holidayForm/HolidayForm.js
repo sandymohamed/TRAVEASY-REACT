@@ -6,7 +6,6 @@ import Form from 'react-bootstrap/Form';
 import './holidayForm.scss';
 import { checkPeriod, handleValidate } from '../../../services/handleForm';
 import { bookHoliday } from '../../../services/holidaysServ';
-import Payment from '../../Payment/Payment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DarkModeContext } from '../../../context/DarkMode';

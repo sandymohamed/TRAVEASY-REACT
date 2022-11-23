@@ -26,7 +26,7 @@ const UserReservations = () => {
         bookedHotelByUser(user).then(res => setHReservations(res))
         bookedHolidayByUser(user).then(res => setTReservations(res))
         getAllFlightByUser(null, null, user).then((res) => setFlightReservations(res.data));
-
+        console.log(FlightReservations);
     }, [])
     return (
         <>

@@ -6,7 +6,6 @@ import { bookHotel, deleteHotelFeedback, getHotelById, getHotelFeedback } from '
 import { useParams } from 'react-router-dom'
 import BookForm from '../../Shared/BookForm/BookForm';
 import { useSelector } from 'react-redux';
-import ImgSlider from '../../Shared/Slider/ImgSlider';
 import HotelDetails from '../../Shared/hotelDetails/HotelDetails';
 import PostFeedback from '../../Shared/PostFeedback/PostFeedback';
 import { setFormatDate } from '../../../services/DateformatService';

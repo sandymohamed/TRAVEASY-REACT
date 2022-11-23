@@ -26,7 +26,7 @@ const Flight = () => {
 
   const FunctionSearch = (e) => {
     // Check Filter for Class Filter
-    if (e.target.name == 'classFilter') {
+    if (e.target.name === 'classFilter') {
       SetselectedClass(e.target.id);
     }
 

@@ -1,8 +1,7 @@
 import './flightcard.scss';
-import dummyImg from '../../../assets/card/dummy-image.jpg';
 import { useEffect, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlane, faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
+import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { bookedFlight } from '../../../services/FlightService';
@@ -11,8 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import Payment from '../../Payment/Payment';
 import { DarkModeContext } from '../../../context/DarkMode';
+import StripePayment from '../Stripe/StripePayment';
 
 
 
@@ -116,8 +115,9 @@ function FlightCard({ Flightobj, setIsBook }) {
         <div className="cardBody">
           <div
             className="cardBody_img col-md-4 "
-            data-aos="fade-up"
-            data-aos-delay="50">
+            // data-aos="fade-up"
+            // data-aos-delay="50"
+            >
             <img
               src="https://w7.pngwing.com/pngs/901/129/png-transparent-hurghada-international-airport-cairo-borg-el-arab-airport-egyptair-airbus-a330-others-text-egypt-logo-thumbnail.png" //{dummyImg}
               alt="Item_Name"></img>
@@ -353,7 +353,26 @@ function FlightCard({ Flightobj, setIsBook }) {
 
 
 
-            <Payment paid={paid} setPaid={setPaid} />
+            {/* <Payment paid={paid} setPaid={setPaid} /> */}
+            <div>
+                <button type="button" className='pay-button'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setPaid(true)
+                  }}
+                >
+                  <StripePayment />
+
+              </button>
+
+              <input
+              type="checkbox"
+              className="btn btn-info fs-4"
+              name="pay"
+              onChange={() => {setPaid(false);}}
+              />
+             <label className="text-primary fs-5">Pay Later</label> 
+              </div>
 
           </div>
 

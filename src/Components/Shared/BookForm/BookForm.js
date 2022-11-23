@@ -5,8 +5,6 @@ import AOS from 'aos';
 import "aos/dist/aos.css"
 import Form from 'react-bootstrap/Form';
 import { checkPeriod, handleValidate } from '../../../services/handleForm';
-import { getTotalPrice } from '../../../services/hotelsServ';
-import Payment from '../../Payment/Payment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DarkModeContext } from '../../../context/DarkMode';

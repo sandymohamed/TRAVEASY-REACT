@@ -4,7 +4,6 @@ import AOS from 'aos';
 import "aos/dist/aos.css"
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import ImgSlider from '../../Shared/Slider/ImgSlider';
 import { getHolidayById } from '../../../services/holidaysServ';
 import HolidayForm from '../../Shared/holidayForm/HolidayForm';
 const BookHoliday = () => {
