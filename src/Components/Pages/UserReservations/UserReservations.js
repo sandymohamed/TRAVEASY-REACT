@@ -17,7 +17,7 @@ const UserReservations = () => {
     const [holidayReservations, setTReservations] = useState([])
     const [FlightReservations, setFlightReservations] = useState([])
 
-
+    const ReduxUserID = useSelector((({ AuthReducer }) => AuthReducer.user.id))
     const userId = useSelector((({ AuthReducer }) => AuthReducer.user.username))
     let user = (userId) ? userId : null
 
@@ -25,7 +25,7 @@ const UserReservations = () => {
     useEffect(() => {
         bookedHotelByUser(user).then(res => setHReservations(res))
         bookedHolidayByUser(user).then(res => setTReservations(res))
-        getAllFlightByUser(null, null, user).then((res) => setFlightReservations(res.data));
+        getAllFlightByUser(null, null, ReduxUserID).then((res) => setFlightReservations(res.data));
         console.log(FlightReservations);
     }, [])
     return (

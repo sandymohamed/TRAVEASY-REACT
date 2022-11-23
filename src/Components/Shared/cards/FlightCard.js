@@ -44,9 +44,10 @@ function FlightCard({ Flightobj, setIsBook }) {
     }
 
     try {
-      bookedFlight(user.id, Flightobj._id, PassportNumber, paid).then((res) => res);
+      bookedFlight(user.id, Flightobj._id, PassportNumber, paid).then((res) => console.log(res));
       setIsBook(true);
       setShowBook(false);
+      
       toast.success(`booking confirmed`, {
         position: toast.POSITION.TOP_CENTER,
       });
