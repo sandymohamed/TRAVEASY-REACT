@@ -54,11 +54,9 @@ const Holidays = () => {
         break;
       case 'city':
         getHolidaysByCityName(city).then((res) => setHotlidays(res));
-        console.log(city);
         break;
       case 'price':
         getHolidayByPrice(price).then((res) => setHotlidays(res));
-        console.log(price, holidays);
         break;
       default:
         getHolidays().then((res) => setHotlidays(res));

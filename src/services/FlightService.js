@@ -40,7 +40,6 @@ export function getAllFlight(countryFrom,countryTo,dateFrom, dateTo, selectedCla
      isFrist = false ;
   }
 
-  console.log("Url flight is  = " +Url);
 
   return instance({
     url: Url ,//`flight`,

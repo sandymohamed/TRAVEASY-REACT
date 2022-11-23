@@ -29,7 +29,6 @@ const Home = () => {
 
   let { isLoggedIn, user } = useSelector(({ AuthReducer }) => AuthReducer);
   let { message } = useSelector((MessageReducer) => MessageReducer);
-  console.log('Message =>', message);
 
   useEffect(() => {
     getAllFlight().then((res) => setAirLineList(res.data));
@@ -169,6 +168,7 @@ const Home = () => {
                         key={i}
                         title={holiday.HotelName}
                         city={holiday.City.City_Name}
+                        img={holiday.City.City_Name}
                         Evaluation={holiday.Evaluation}
                         Price={holiday.Price}
                         link={`holidays/${holiday._id}`}

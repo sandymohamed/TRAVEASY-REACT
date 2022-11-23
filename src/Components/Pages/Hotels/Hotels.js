@@ -35,7 +35,6 @@ const Hotels = () => {
     switch (filter) {
       case 'getHotelsByRate':
         getHotelsByRate(rate).then((res) => setHotels(res));
-        console.log(rate);
         break;
 
       case 'city':
@@ -59,8 +58,6 @@ const Hotels = () => {
     getCities().then((res) => setCities(res));
 
     getHotels().then((res) => setHotels(res));
-    //   getImage(`${hotelName}`).then((res=> setImgs(res)))
-    //  console.log(imgs);
   }, []);
 
   const serviceSection = (

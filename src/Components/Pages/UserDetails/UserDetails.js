@@ -202,7 +202,6 @@ function UserDetails() {
       userData.country &&
       userData.oldPassword
     ) {
-      console.log(userData)
       AuthService.update(userData, user.id).then(() => {
         setTimeout(() => {
           window.location.reload();

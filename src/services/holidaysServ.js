@@ -21,7 +21,6 @@ export const geHolidaysLimit = () => {
 
 // get holiday by id 
 export const getHolidayById = (id) => {
-  console.log( id);
    return instance.get(`${ENDPOINTS.GETHOLIDAYS}`+id, { headers: authHeader() })
  
    .then(res => {return(res.data)})
@@ -39,7 +38,6 @@ export const getHolidayByPrice = (price) => {
 
 // get holidays by it's rate
 export const getHolidaysByRate = (rate) => {
-  console.log('lol');
   return instance
     .get(`${ENDPOINTS.GETHOLIDAYSBYRATE}?rate=${rate}`)
 
@@ -64,7 +62,6 @@ export const getHolidaysByCityName = (city) => {
 
 // Book holiday
 export const bookHoliday = (bookData) => {
-  console.log(bookData);
   return instance.post(`${ENDPOINTS.BOOKHOLIDAY}`,bookData, { headers: authHeader() } )
 
   .then(res => console.log(res))

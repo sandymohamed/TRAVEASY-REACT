@@ -91,7 +91,6 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
 
   useEffect(() => {
     AOS.init();
-    console.log(total)
 
   }, [paid, total, values.startDate, values.endDate, values.Double, values.Single, values])
 
@@ -199,7 +198,7 @@ const BookForm = ({ initialValues, bookHotel, id, price }) => {
               <div className='price'>
                 {/* <button type="button" className="orangeBtn" onClick={() => { calcTotal() }} > calc total price</button> */}
                 <span className='title'>Total price</span>
-                <span className='total'> {total && <span>L.E</span>}</span>
+                <span className='total'> {total } <span>L.E</span></span>
 
             </div>
             <div className='booking p-4'>

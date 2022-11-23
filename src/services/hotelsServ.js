@@ -81,7 +81,6 @@ export const getCities = () => {
 
 // book hotel
 export const bookHotel = (bookData) => {
-    console.log(bookData);
     return instance.post(`${ENDPOINTS.BOOKHOTEL}`,bookData, { headers: authHeader() })
 
     .then(res => console.log(res))

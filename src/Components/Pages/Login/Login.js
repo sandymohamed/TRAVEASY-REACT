@@ -57,7 +57,6 @@ function SignIn() {
 
   const submitData = (e) => {
     e.preventDefault();
-    console.log(isLoggedIn);
 
     if (!errors.usernameErr && !errors.passwordErr) {
       // pug!

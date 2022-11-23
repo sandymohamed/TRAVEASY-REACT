@@ -10,9 +10,7 @@ function ImgSlider({hotelId}) {
 
 
     useEffect(()=>{
-        console.log(hotelId);
         getHotelById(`${hotelId}`).then((res)=>setImgs(res.ImgURL))
-        console.log(imgs);
       getHolidayById(`${hotelId}`).then((res)=>setImgs(res.ImgURL))
     },[])
 

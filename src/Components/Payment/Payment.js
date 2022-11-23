@@ -46,7 +46,6 @@ export default function Payment({paid, setPaid}) {
     try {
       return actions.order.capture().then(function (details) {
         const { payer } = details;
-        console.log(payer);
         setSuccess(true);
       });
     } catch (error) {

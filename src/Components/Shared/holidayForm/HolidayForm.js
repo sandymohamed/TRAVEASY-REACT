@@ -203,7 +203,7 @@ const HolidayForm = ({ initialValues, price }) => {
                 </Form.Text>
                 <div className='bookAction'>
                     <div className='price'>
-                        <span>Total price: {total}</span>
+                        <span>Total price: {total} </span>
                     </div>
                     <div className='booking'>
                         {/* <Payment paid={paid} setPaid={setPaid} /> */}
