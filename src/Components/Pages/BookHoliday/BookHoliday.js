@@ -42,7 +42,11 @@ const BookHoliday = () => {
                 {/* <section className='slider m-0 p-0'>
                     <ImgSlider hotelId={id} />
                 </section> */}
-                <section className="formCard center" data-aos="fade-up" data-aos-delay="100">
+                <section className="formCard center m-2 p-3" data-aos="fade-up" data-aos-delay="100"
+                style={{ border: "10px solid #a2d7ff",
+                    background:"#fff",
+                    borderRadius: "calc($borderRadius * 3)",
+                   }}>
                     <div className='det-container' data-aos="fade-out" data-aos-delay="400">
                         {(holiday) && (
                             <>
