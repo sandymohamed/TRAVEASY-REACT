@@ -26,7 +26,7 @@ const UserReservations = () => {
         bookedHotelByUser(user).then(res => setHReservations(res))
         bookedHolidayByUser(user).then(res => setTReservations(res))
         getAllFlightByUser(null, null, ReduxUserID).then((res) => setFlightReservations(res.data));
-        console.log(FlightReservations);
+        console.log(hotelReservations);
     }, [])
     return (
         <>

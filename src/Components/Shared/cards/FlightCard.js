@@ -110,7 +110,7 @@ function FlightCard({ Flightobj, setIsBook }) {
       <section
         className={`flightCard flightCard${darkMode}`}
         data-aos="fade-up"
-        data-aos-delay="200"
+        // data-aos-delay="200"
         >
 
         <ToastContainer />
@@ -118,7 +118,7 @@ function FlightCard({ Flightobj, setIsBook }) {
           <div
             className="cardBody_img col-md-4 "
             data-aos="fade-up"
-            data-aos-delay="500"
+            data-aos-delay="200"
             >
             <img
               src="https://w7.pngwing.com/pngs/901/129/png-transparent-hurghada-international-airport-cairo-borg-el-arab-airport-egyptair-airbus-a330-others-text-egypt-logo-thumbnail.png" //{dummyImg}

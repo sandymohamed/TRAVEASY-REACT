@@ -1,7 +1,6 @@
 
 import "./slideBar.scss"
 
-import MultiRangeSlider from '../../Shared/range/MultiRangeSlider';
 import { useContext, useState } from "react";
 import { DarkModeContext } from "../../../context/DarkMode";
 

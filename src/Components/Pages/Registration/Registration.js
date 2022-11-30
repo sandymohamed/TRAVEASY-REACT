@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useHistory, Redirect } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../../redux/actions/auth';
@@ -159,17 +159,17 @@ function Registration() {
     }
   };
   return (
-    <div class="page-holder align-items-center py-4 bg-gray-100 vh-100">
-      <div class="container">
-        <div class="row align-items-center">
+    <div className="page-holder align-items-center py-4 bg-gray-100 vh-100">
+      <div className="container">
+        <div className="row align-items-center">
           <ToastContainer />
-          <div class="col-lg-6 px-lg-4">
-            <div class="card">
-              <div class="card-header px-lg-5">
-                <div class="card-heading text-primary">Register form</div>
+          <div className="col-lg-6 px-lg-4">
+            <div className="card">
+              <div className="card-header px-lg-5">
+                <div className="card-heading text-primary">Register form</div>
               </div>
-              <div class="card-body p-lg-5">
-                <h3 class="mb-4">Get started</h3>
+              <div className="card-body p-lg-5">
+                <h3 className="mb-4">Get started</h3>
                 <form onSubmit={(e) => submitData(e)}>
                   <div className="mb-3">
                     <label
@@ -307,10 +307,10 @@ function Registration() {
               </div>
             </div>
           </div>
-          <div class="d-none d-lg-block col-lg-6 col-xl-5 ms-xl-auto px-lg-4 text-center text-primary"><img class="img-fluid mb-4" width="300"
+          <div className="d-none d-lg-block col-lg-6 col-xl-5 ms-xl-auto px-lg-4 text-center text-primary"><img className="img-fluid mb-4" width="300"
             src="https://img.freepik.com/free-vector/vacation-holidays-background-with-realistic-globe-suitcase-photo-camera_1284-10476.jpg?1?w=360"
             alt="" style={{ transform: 'rotate(10deg)' }} />
-            <h1 class="mb-4">Traveasy.com <br class="d-none d-lg-inline" />Vacation become easier.</h1>
+            <h1 className="mb-4">Traveasy.com <br className="d-none d-lg-inline" />Vacation become easier.</h1>
           </div>
         </div>
       </div>

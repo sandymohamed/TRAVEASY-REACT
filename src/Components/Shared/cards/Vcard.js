@@ -41,7 +41,7 @@ function Vcart({ link, title, city, description, Evaluation, Price, hotelId,img 
             <div className="cartBody_details_data_text">
               <span className="spanMajor">{city}</span>
               <span className="spanMinor">{description}</span>
-              <span className=" review spanMinor"> {Evaluation} <i class="fa-solid fa-star"></i></span>
+              <span className=" review spanMinor"> {Evaluation} <i className="fa-solid fa-star"></i></span>
             </div>
             <div className="cartBody_details_data_price">
               <span className="stars">price: </span>

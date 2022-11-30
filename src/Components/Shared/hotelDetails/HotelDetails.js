@@ -33,7 +33,7 @@ const HotelDetails = ({ hotelId }) => {
                                         <div className='hotel-details-data'>
                                             <span className='title'> Rate</span>
                                             <span className=' data hotelStar'>
-                                                {hotel.Evaluation} <i class="fa-solid fa-star"></i>
+                                                {hotel.Evaluation} <i className="fa-solid fa-star"></i>
                                             </span>
                                         </div>
                                         <div className='hotel-details-data'>
