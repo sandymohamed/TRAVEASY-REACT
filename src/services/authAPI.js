@@ -3,7 +3,8 @@ import { toast } from 'react-toastify';
 import authHeader from './auth-header';
 
 export const instance = axios.create({
-  baseURL: 'https://traveasy.herokuapp.com/',
+  // baseURL: 'https://traveasy.herokuapp.com/',
+  baseURL: 'https://occipital-fine-constrictor.glitch.me/',
 });
 
 class AuthService {
