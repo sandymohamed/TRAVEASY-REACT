@@ -10,7 +10,6 @@ import {
   getHotelsByCityName,
   getHotelByName,
   getHotelByPrice,
-  getImage,
 } from '../../../services/hotelsServ';
 import { useEffect, useState } from 'react';
 import ServiceSection from '../../Shared/serviceSection/ServiceSection';
@@ -22,14 +21,12 @@ const headerTitle = <>Life is short, and the world is wide.</>;
 const headerParagraph = <> Live life with no excuses, travel with no regret. <br></br> Indulgent holiday offers, family packages, business bundles and more.</>;
 
 const Hotels = () => {
-  const [hotels, setHotels] = useState([]);
-  const [cities, setCities] = useState([]);
+  const [hotels, setHotels] = useState(null);
+  const [cities, setCities] = useState(null);
   const [city, setCity] = useState('');
   const [search, setSearch] = useState('');
   const [price, setPrice] = useState(null);
-  const [rate, setRate] = useState(null);
-  const [imgs, setImgs] = useState([]);
-  // const [hotelName, setHotelName] = useState('');
+  const [rate, setRate] = useState(null); 
 
   const filterHotels = (filter) => {
     switch (filter) {
@@ -57,7 +54,8 @@ const Hotels = () => {
   useEffect(() => {
     getCities().then((res) => setCities(res));
 
-    getHotels().then((res) => setHotels(res));
+    getHotels().then((res) =>{ setHotels(res);
+      console.log(hotels)});
   }, []);
 
   const serviceSection = (
@@ -104,14 +102,14 @@ const Hotels = () => {
                 hotels.map((hotel, i) => (
                   <Vcart
                     key={i}
-                    title={hotel.HotelName}
-                    city={hotel.City.City_Name}
-                    Evaluation={hotel.Evaluation}
-                    Price={hotel.Price}
-                    img={hotel.HotelName}
+                    title={hotel?.HotelName}
+                    city={hotel?.City?.City_Name}
+                    Evaluation={hotel?.Evaluation}
+                    Price={hotel?.Price}
+                    img={hotel?.HotelName.split(' ')[0]}
                     // description={hotel.Description}
-                    hotelId={hotel._id}
-                    link={`hotels/${hotel._id}`}
+                    hotelId={hotel?._id}
+                    link={`hotels/${hotel?._id}`}
                   />
                 ))}
             </div>

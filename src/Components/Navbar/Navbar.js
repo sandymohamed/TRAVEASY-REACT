@@ -82,10 +82,11 @@ function NavbarComponant() {
 
         <li className="nav__item">
           <ul>
-            <li className={`userInfo ${!isLoggedIn ? 'd-none' : ''}`}>
+            {isLoggedIn && <li className="userInfo" >
               <i className="fa-solid fa-user"></i>
               <span onClick={setShow} style={{ cursor: "pointer" }}>{user?.firstName}</span>
               <ul className={`${show ? 'd-none' : ''} `} >
+
                 <li>
                   <span className='userInfo_icon'>
                     <i className="fa-regular fa-id-badge"></i>
@@ -94,6 +95,7 @@ function NavbarComponant() {
                     <span className='userInfo_title'>Profile Page</span>
                   </NavLink>
                 </li>
+
                 <li>
                   <span className='userInfo_icon'>
                     <i className="fa-solid fa-list"></i>
@@ -110,14 +112,24 @@ function NavbarComponant() {
                   <span className='userInfo_title'>Logout</span>
                 </li>
               </ul>
-            </li>
-            <li>
-              <Link
-                className={`nav__link ${isLoggedIn ? 'd-none' : ''}`}
-                to="/login">
-                <i className="fa-solid fa-right-to-bracket"></i> Login
-              </Link>
-            </li>
+            </li>}
+
+            {!isLoggedIn ?
+              (<li>
+                <Link
+                  className={`nav__link ${isLoggedIn ? 'd-none' : ''}`}
+                  to="/login">
+                  <i className="fa-solid fa-right-to-bracket"></i> Login
+                </Link>
+              </li>) : (
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className={`btn btn-md text-white pt-1 ${!isLoggedIn ? 'd-none' : ''}`}>
+                    <i className="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                  </button>
+                </li>
+              )}
             <li>
               <Link
                 className={`nav__link ${isLoggedIn ? 'd-none' : ''}`}
@@ -127,13 +139,7 @@ function NavbarComponant() {
               </Link>
             </li>
 
-            <li>
-              <button
-                onClick={handleLogout}
-                className={`btn btn-md text-white pt-1 ${!isLoggedIn ? 'd-none' : ''}`}>
-                <i className="fa-solid fa-arrow-right-from-bracket"></i> Logout
-              </button>
-            </li>
+
           </ul>
         </li >
       </ul >

@@ -1,6 +1,8 @@
 import { REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from '../actions/type';
 
-const user = JSON.parse(localStorage.getItem('user'));
+const userLocal = localStorage.getItem('user');
+
+ let user = userLocal ? JSON.parse(userLocal) : null;
 
 // pug!!
 const initialState = user

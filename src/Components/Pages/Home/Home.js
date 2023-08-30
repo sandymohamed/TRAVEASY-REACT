@@ -18,17 +18,17 @@ import { getAllFlight } from '../../../services/FlightService';
 
 const Home = () => {
 
-  const [holidays, setHolidays] = useState([]);
-  const [AirLineList, setAirLineList] = useState([]);
+  const [holidays, setHolidays] = useState(null);
+  const [AirLineList, setAirLineList] = useState(null);
   const [isBook, setIsBook] = useState();
 
-  let countcart  = 1
+  let countcart = 1
 
   let { isLoggedIn, user } = useSelector(({ AuthReducer }) => AuthReducer);
   let { message } = useSelector((MessageReducer) => MessageReducer);
 
   useEffect(() => {
-    getAllFlight().then((res) => setAirLineList(res.data));
+    getAllFlight().then((res) => setAirLineList(res?.data));
     geHolidaysLimit().then((res) => setHolidays(res));
   }, []);
 
@@ -82,13 +82,13 @@ const Home = () => {
               <span>In The World</span>
             </article>
             <div className='flightContainer_discover'>
-              <div className='row'>
+              <div className='row w-100'>
 
                 <div className='discover_cards  col-md-7'>
 
-                  {AirLineList.map((AirLine, index) => {                 
-                    if (countcart < 3 &&  AirLine.NumberTickets > 0) {
-                      countcart ++;
+                  {AirLineList && AirLineList?.map((AirLine, index) => {
+                    if (countcart < 3 && AirLine.NumberTickets > 0) {
+                      countcart++;
                       return (
                         <FlightCard
                           key={AirLine._id}
@@ -100,9 +100,9 @@ const Home = () => {
                   })}
 
                 </div>
-                <div className='discover_img col-md-4'>
+                <div className='discover_img col-md-4 h-100'>
                   <img alt="" src={flightImg} loading="lazy" ></img>
-                  <button className='orangeBtn'>Discover Now</button>
+                  <Link className='orangeBtn w-100' to='flight'>Discover Now </Link>
 
                 </div>
               </div>
@@ -154,20 +154,19 @@ const Home = () => {
         </section>
         <section className='home-tourContaier'>
           <div className='container'>
-            <div className='row'>
+            <div className='row w-100'>
               <div className='tour-img col-md-5 d-flex ' >
 
                 {holidays &&
                   holidays.map((holiday, i) => (
-                    <div >
+                    <div key={i}>
                       <Vcart
-                        key={i}
-                        title={holiday.HotelName}
-                        city={holiday.City.City_Name}
-                        img={holiday.City.City_Name}
-                        Evaluation={holiday.Evaluation}
-                        Price={holiday.Price}
-                        link={`holidays/${holiday._id}`}
+                        title={holiday?.HotelName}
+                        city={holiday?.City?.City_Name}
+                        img={holiday?.City?.City_Name}
+                        Evaluation={holiday?.Evaluation}
+                        Price={holiday?.Price}
+                        link={`holidays/${holiday?._id}`}
                       />
                     </div>
                   ))}

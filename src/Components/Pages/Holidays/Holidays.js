@@ -18,8 +18,8 @@ import ServiceSection from '../../Shared/serviceSection/ServiceSection';
 const headerTitle = <>Select Your Destination </>;
 const headerParagraph = <> The great advantage of a hotel is that it is a refuge from home life. </>;
 const Holidays = () => {
-  const [holidays, setHotlidays] = useState([]);
-  const [cities, setCities] = useState([]);
+  const [holidays, setHotlidays] = useState(null);
+  const [cities, setCities] = useState(null);
   const [city, setCity] = useState('');
   const [rate, setRate] = useState(null);
 
@@ -38,8 +38,8 @@ const Holidays = () => {
             cities.map((city, i) => (
               <option
                 key={i}
-                value={city.City_Name}>
-                {city.City_Name}
+                value={city?.City_Name}>
+                {city?.City_Name}
               </option>
             ))}
         </select>
@@ -106,15 +106,15 @@ const Holidays = () => {
                 holidays.map((holiday, i) => (
                   <Vcart
                     key={i}
-                    title={holiday.HotelName}
-                    city={holiday.City.City_Name}
-                    Evaluation={holiday.Evaluation}
-                    Price={holiday.Price}
-                    img={holiday.City.City_Name}
+                    title={holiday?.HotelName}
+                    city={holiday?.City?.City_Name}
+                    Evaluation={holiday?.Evaluation}
+                    Price={holiday?.Price}
+                    img={holiday?.City?.City_Name}
 
                     // img={holiday.ImgURL[0]}
                     // description={holiday.Description}
-                    link={`holidays/${holiday._id}`}
+                    link={`holidays/${holiday?._id}`}
                   />
                 ))}
             </div>

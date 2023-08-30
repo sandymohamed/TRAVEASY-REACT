@@ -8,6 +8,7 @@ import { useHistory, Redirect } from 'react-router-dom';
 import { login } from '../../../redux/actions/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import { DarkModeContext } from '../../../context/DarkMode';
+import { Button, Form } from 'react-bootstrap';
 
 function SignIn() {
   const dispatch = useDispatch();
@@ -84,28 +85,29 @@ function SignIn() {
         <section
           id="login"
           className={`login${darkMode}`}>
-          <div className={`container `}>
+          <div className='container p-0 m-0'>
             <div className="loginImg ">
               <img
                 src={loginImg}
                 alt="login img"
-                className=""
+                className="p-0 m-0 margin-end-2"
               />
             </div>
             <ToastContainer />
 
-            <form onSubmit={(e) => submitData(e)}>
+            <Form onSubmit={(e) => submitData(e)} >
               <div className="loginGorm_title">
                 <span> Welcome To TravEasy</span>
                 <h3> Sign In</h3>
               </div>
-              <div>
-                <label
+
+              <Form.Group className="mb-3" controlId="username">
+                <Form.Label
                   htmlFor="username"
                   className="form-label">
                   Username
-                </label>
-                <input
+                </Form.Label>
+                <Form.Control
                   type="text"
                   className={`form-control ${errors.usernameErr && 'border-danger'}`}
                   name="username"
@@ -114,15 +116,16 @@ function SignIn() {
                 />
 
                 <p className="text-danger"> {errors.usernameErr} </p>
-              </div>
+              </Form.Group>
 
-              <div>
-                <label
+              <Form.Group className="mb-3" controlId="password">
+
+                <Form.Label
                   htmlFor="password"
                   className="form-label">
                   Password
-                </label>
-                <input
+                </Form.Label>
+                <Form.Control
                   type="password"
                   className={`form-control ${errors.passwordErr && 'border-danger'} `}
                   name="password"
@@ -131,17 +134,18 @@ function SignIn() {
                 />
 
                 <p className="text-danger"> {errors.passwordErr} </p>
-                <div className="d-flex flex-column align-items-center">
-                  <button
-                    disabled={errors.usernameErr || errors.passwordErr}
-                    type="submit"
-                    className="primaryBtn">
-                    Login
-                  </button>
-                  <Link to="/register">Create an account</Link>
-                </div>
+              </Form.Group>
+
+              <div className="d-flex flex-column align-items-center">
+                <Button
+                  disabled={errors.usernameErr || errors.passwordErr}
+                  type="submit"
+                  className="primaryBtn">
+                  Login
+                </Button>
+                <Link to="/register" className="m-2">Create an account</Link>
               </div>
-            </form>
+            </Form>
           </div>
         </section>
       </div>

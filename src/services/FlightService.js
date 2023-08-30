@@ -2,7 +2,8 @@ import axios from 'axios';
 
 export const instance = axios.create({
   // baseURL: 'https://traveasy.herokuapp.com/',
-  baseURL: 'https://occipital-fine-constrictor.glitch.me/',
+  // baseURL: 'https://occipital-fine-constrictor.glitch.me/',
+  baseURL: 'http://localhost:8080/',
 });
 // Get all Flight
 export function getAllFlight(countryFrom,countryTo,dateFrom, dateTo, selectedClass, price) {

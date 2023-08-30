@@ -1,93 +1,107 @@
 @import "../../../Style//shortcuts.scss";
 
-.log-container{
+.log-container {
     height: 90vh;
 
-#login {
-    // min-height: 75vh !important;
-    @include dFlex;
-    overflow: hidden;
-    background-color: rgb(255, 255, 255);
-    margin: 2rem 10vw;
-    padding: 2rem 0;
-    border-radius: calc($borderRadius * 3);
-    position: relative;
-    .container {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row !important;
-        @media only screen and (max-width: 850px) {
-            @include dFlex;
-            .loginImg img {
-                display: none;
-            }
-        }
-        .loginImg {
-            border-radius: calc($borderRadius * 2);
-            overflow: hidden;
-            img {
-                height: 400px;
-            }
-        }
+    #login {
+        // min-height: 75vh !important;
+    
+        overflow: hidden;
+        background-color: rgb(255, 255, 255);
+        margin: 2rem 10vw;
+        padding: 0;
+        border-radius: calc($borderRadius * 3);
+        position: relative;
 
-        form {
-           
-            .loginGorm_title {
+        .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;            // justify-content: space-between;
+            flex-direction: row !important;
+
+            @media only screen and (max-width: 850px) {
                 @include dFlex;
-                flex-direction: column;
-                margin-bottom: 1rem;
 
-                span {
-                    padding: 1rem 3rem;
-                    margin-bottom: 1rem;
-                    color: white;
-                    border-radius: calc($borderRadius * 2);
-                    background-color: $primaryColor;
-                    transition: $noramlTransition;
+                .loginImg img {
+                    display: none;
+                }
+            }
 
-                    &:hover {
-                        box-shadow: 5px 5px rgba(27, 118, 160, 0.932);
+            .loginImg {
+                border-radius: calc($borderRadius * 2);
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+
+                img {
+                    width: 100%;
+                    // height: 100%;
+                }
+            }
+
+            form {
+
+                margin-left: 1.5rem;
+                .loginGorm_title {
+                    @include dFlex;
+                    flex-direction: column;
+                    margin: 1.5rem;
+                   
+
+                    span {
+                        padding: 1rem 3rem;
+                        margin-bottom: 1rem;
+                        color: white;
+                        border-radius: calc($borderRadius * 2);
+                        background-color: $primaryColor;
+                        transition: $noramlTransition;
+
+                        &:hover {
+                            box-shadow: 5px 5px rgba(27, 118, 160, 0.932);
+                        }
+
                     }
 
-                }
-              
 
-                h3 {
-                    color: $gray;
+                    h3 {
+                        color: $gray;
 
+                    }
                 }
             }
         }
     }
-}
 
 }
 
 
-.logintrue{
+.logintrue {
     border: 10px solid lighten($primaryColor, 10);
 
 }
 
 .loginfalse {
-    background-color:$secoundryColorDark  !important;
+    background-color: $secoundryColorDark !important;
     border: 10px solid lighten($secoundryColorDark, 10);
-   
+
     .container {
-    
+
         form {
-            label{
+            label {
                 color: white !important;
             }
+
             .loginGorm_title {
-            
+
                 span {
                     color: white;
                     background-color: $secoundryColor !important;
+
                     &:hover {
                         box-shadow: 5px 5px lighten($secoundryColor, $amount: 10) !important;
                     }
                 }
+
                 h3 {
                     color: $white !important;
 
@@ -95,4 +109,6 @@
             }
         }
     }
-};
+}
+
+;

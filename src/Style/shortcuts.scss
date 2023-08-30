@@ -55,6 +55,7 @@ $borderRadius: 1.2em;
     color: white;
     transition: $noramlTransition;
     margin: 0.2em ;
+    
     &:hover{
        background-color: darken($secoundryColor, 20) ;
     }

@@ -5,7 +5,7 @@ const DarkModeContext = createContext(false);
 
 function DarkModeProvider(props) {
   let darkModeLS = JSON.parse(localStorage.getItem('darkMode'));
-  let [darkMode, setdarkMode] = useState(darkModeLS);
+  let [darkMode, setdarkMode] = useState(darkModeLS ? darkModeLS : false );
 
   const toggleDarkMode = () => {
     let darkModeLS22 = localStorage.getItem('darkMode');

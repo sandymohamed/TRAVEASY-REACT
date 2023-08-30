@@ -50,11 +50,11 @@ const BookHoliday = () => {
                     <div className='det-container' data-aos="fade-out" data-aos-delay="400">
                         {(holiday) && (
                             <>
-                                {(holiday.City) && (<h3>{holiday.City.City_Name}</h3>)}
-                                <p>{holiday.Evaluation} stars holiday</p>
-                                <p>{holiday.Period} days</p>
-                                <p>{holiday.Description}</p>
-                                <p>Price: {holiday.Price}$</p>
+                                {(holiday.City) && (<h3>{holiday.City?.City_Name}</h3>)}
+                                <p>{holiday?.Evaluation} stars holiday</p>
+                                <p>{holiday?.Period} days</p>
+                                <p>{holiday?.Description}</p>
+                                <p>Price: {holiday?.Price}$</p>
                             </>
                         )}
                     </div>

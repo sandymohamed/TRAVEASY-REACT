@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../../../context/DarkMode';
 import { getImage } from '../../../services/hotelsServ';
 
-function Vcart({ link, title, city, description, Evaluation, Price, hotelId,img }) {
+function Vcart({ link, title, city, description, Evaluation, Price, hotelId, img }) {
   
   const { toggleDarkMode, darkMode } = useContext(DarkModeContext);
-  const [imgs, setImgs] = useState([]);
+  const [imgs, setImgs] = useState(null);
 
   useEffect(() => {
     
@@ -20,7 +20,7 @@ function Vcart({ link, title, city, description, Evaluation, Price, hotelId,img 
   }, []);
 
   return (
-    <section id="vcart" className={`v${darkMode}`}>
+    <section id="vcart" className={`v${darkMode} m-2`}>
       <div
         className={` cartBody `}>
         <div
@@ -28,9 +28,9 @@ function Vcart({ link, title, city, description, Evaluation, Price, hotelId,img 
           data-aos="fade-up"
           data-aos-delay="300">
           <img
-          src={imgs[0]? imgs[0].url :dummyImg}
-
-            alt="Item_Name"></img>
+          // src={imgs? imgs[0]?.url :dummyImg}
+          src={dummyImg}
+            alt={title}></img>
         </div>
         <article
           className="cartBody_details"

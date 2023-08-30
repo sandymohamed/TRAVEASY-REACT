@@ -6,7 +6,7 @@ import './imgSlider.scss'
 
 function ImgSlider({hotelId}) {
 
-    const [imgs, setImgs] = useState([])
+    const [imgs, setImgs] = useState(null)
 
 
     useEffect(()=>{

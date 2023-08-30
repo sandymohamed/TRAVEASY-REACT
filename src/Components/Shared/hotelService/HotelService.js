@@ -31,8 +31,8 @@ const HotelService = ({ setSearch, filterHotels, city, setCity, cities }) => {
                 cities.map((city, i) => (
                   <option
                     key={i}
-                    value={city.City_Name}>
-                    {city.City_Name}
+                    value={city?.City_Name}>
+                    {city?.City_Name}
                   </option>
                 ))}
             </select>

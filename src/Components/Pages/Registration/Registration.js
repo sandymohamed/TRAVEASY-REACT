@@ -159,15 +159,13 @@ function Registration() {
     }
   };
   return (
-    <div className="page-holder align-items-center py-4 bg-gray-100 vh-100">
+    <div className="page-holder align-items-center py-4 bg-gray-100 ">
       <div className="container">
         <div className="row align-items-center">
           <ToastContainer />
           <div className="col-lg-6 px-lg-4">
             <div className="card">
-              <div className="card-header px-lg-5">
-                <div className="card-heading text-primary">Register form</div>
-              </div>
+              
               <div className="card-body p-lg-5">
                 <h3 className="mb-4">Get started</h3>
                 <form onSubmit={(e) => submitData(e)}>

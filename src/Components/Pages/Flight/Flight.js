@@ -10,11 +10,11 @@ import SlideBar from '../../Shared/slideBar/Slidebar';
 import { setFormatDate } from '../../../services/DateformatService';
 
 
-const headerTitle = <>We don’t need objects; we need adventures.</>;
+const headerTitle = <>We don’t need objects, we need adventures.</>;
 const headerParagraph = <> Once a year, go someplace you’ve never been before.</>;
 
 const Flight = () => {
-  const [AirLineList, setAirLineList] = useState([]);
+  const [AirLineList, setAirLineList] = useState(null);
   const [countryTo, setcountryTo] = useState();
   const [countryFrom, setcountryFrom] = useState();
   const [selectedClass, SetselectedClass] = useState();
@@ -184,7 +184,8 @@ const Flight = () => {
             />
           </section>
           <section className="cardsArea col-md-8 ">
-            {AirLineList.map((AirLine) => {
+            {AirLineList &&
+            AirLineList?.map((AirLine) => {
 
               return (
                 <FlightCard

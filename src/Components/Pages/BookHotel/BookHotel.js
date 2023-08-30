@@ -13,7 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const BookHotel = () => {
   // hotel id
   const { id } = useParams()
-  const [feedback, setFeedback] = useState([])
+  const [feedback, setFeedback] = useState(null)
   const [price, setPrice] = useState(null)
   const userId = useSelector((({ AuthReducer }) => AuthReducer.user.id))
   const username = useSelector((({ AuthReducer }) => AuthReducer.user.username))

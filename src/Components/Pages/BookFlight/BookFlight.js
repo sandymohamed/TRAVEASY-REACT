@@ -17,7 +17,7 @@ const headerParagraph = <> Once a year, go someplace you’ve never been before.
 
 
 const BookFlight = () => {
-  const [AirLineList, setAirLineList] = useState([]);
+  const [AirLineList, setAirLineList] = useState(null);
   const [countryTo, setcountryTo] = useState();
   const [countryFrom, setcountryFrom] = useState();
   const [dateTo, setdateTo] = useState();
@@ -53,7 +53,7 @@ const BookFlight = () => {
 
       {/* ////////////////////// */}
       <section className="formCard " >
-            {AirLineList.map((AirLine) => (
+            {AirLineList && AirLineList?.map((AirLine) => (
 
               <div className='reservation-card fs-6'>
                 <p >DepartureDate : {format(new Date(AirLine.Flight.DepartureDate), 'dd/mm/yyyy')}</p>

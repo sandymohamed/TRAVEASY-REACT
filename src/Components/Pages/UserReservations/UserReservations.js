@@ -13,9 +13,9 @@ import { getAllFlightByUser } from '../../../services/FlightService';
 
 const UserReservations = () => {
 
-    const [hotelReservations, setHReservations] = useState([])
-    const [holidayReservations, setTReservations] = useState([])
-    const [FlightReservations, setFlightReservations] = useState([])
+    const [hotelReservations, setHReservations] = useState(null)
+    const [holidayReservations, setTReservations] = useState(null)
+    const [FlightReservations, setFlightReservations] = useState(null)
 
     const ReduxUserID = useSelector((({ AuthReducer }) => AuthReducer.user.id))
     const userId = useSelector((({ AuthReducer }) => AuthReducer.user.username))

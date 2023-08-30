@@ -4,7 +4,8 @@ import authHeader from './auth-header';
 
 export const instance = axios.create({
   // baseURL: 'https://traveasy.herokuapp.com/',
-  baseURL: 'https://occipital-fine-constrictor.glitch.me/',
+  // baseURL: 'https://occipital-fine-constrictor.glitch.me/',
+  baseURL: 'http://localhost:8080/',
 });
 
 class AuthService {
